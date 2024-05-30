@@ -1,4 +1,5 @@
 import React from 'react';
+import SignUpFormProvider from '@/components/forms/sing-up/form-providers';
 
 type Props = {};
 
@@ -6,9 +7,9 @@ const SignUp = (props: Props) => {
   return (
     <div className="w-full flex-1 py-36 md:px-16">
       <div className="h-ful flex flex-col gap-3">
-        <SignUpFormProvider>
+        {/* <SignUpFormProvider>
 
-      </SignUpFormProvider>
+      </SignUpFormProvider> */}
       </div>
     </div>
   );
