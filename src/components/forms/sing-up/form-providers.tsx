@@ -7,11 +7,11 @@ type Props = {
 }
 
 const SignUpFormProvider = ({children}: Props) => {
-    // return <AuthContextPorvider>
-    //     <FormProvider>
+    return <AuthContextPorvider>
+        <FormProvider>
 
-    // </FormProvider>
-    // </AuthContextPorvider>;
+    </FormProvider>
+    </AuthContextPorvider>;
 }
 
 export default SignUpFormProvider
