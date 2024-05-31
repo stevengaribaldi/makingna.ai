@@ -1,6 +1,6 @@
 'use server';
 import { client } from '@/lib/prisma';
-import { currentUser, redirectToSignIn } from '@clerk/nextjs';
+// import { currentUser, redirectToSignIn } from '@clerk/nextjs';
 export const onCompleteUserRegistration = async (
   fullname: string,
   clerkId: string,

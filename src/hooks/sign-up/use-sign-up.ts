@@ -8,8 +8,8 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import {} from '@/actions/auth';
 import { error } from 'console';
+import { onCompleteUserRegistration } from '@/actions/auth/index';
 
 export const useSignUpForm = () => {
   const { toast } = useToast();
@@ -88,5 +88,10 @@ export const useSignUpForm = () => {
       }
     },
   );
-  return { methods, onHandleSubmit, onGenerateOTP, loading };
+  return {
+    methods,
+    onHandleSubmit,
+    onGenerateOTP,
+    loading,
+  };
 };
