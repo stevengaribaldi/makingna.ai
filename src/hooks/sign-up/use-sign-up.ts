@@ -1,10 +1,12 @@
+'use client';
+
 import { useToast } from '@/components/ui/use-toast';
 import {
   UserRegistrationProps,
   UserRegistrationSchema,
 } from '@/schemas/auth.schema';
 import { useSignUp } from '@clerk/nextjs';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';

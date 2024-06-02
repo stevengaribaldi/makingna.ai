@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 
 type InitialValuesProps = {
@@ -20,17 +21,15 @@ export const AuthContextPorvider = ({
 }) => {
   const [currentStep, setCurrentStep] = useState<number>(
     InitialValues.currentStep,
-    );
-    const values = {
-        currentStep,
-        setCurrentStep,
-
-    }
-    return <Provider value={values}>{children}</Provider>
+  );
+  const values = {
+    currentStep,
+    setCurrentStep,
+  };
+  return <Provider value={values}>{children}</Provider>;
 };
 
-
 export const useAuthContextHook = () => {
-    const state = React.useContext(authContext);
-    return state;
-}
+  const state = React.useContext(authContext);
+  return state;
+};
