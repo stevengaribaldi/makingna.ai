@@ -28,11 +28,11 @@ const LayoutProps = async ({ children }: Props) => {
         />
         {children}
       </div>
-      <div className="max-w-4000px bg-cream relative hidden max-h-full w-full flex-1 flex-col gap-3  overflow-hidden pl-24 pt-10 lg:flex">
-        <h2 className="text-gravel font-bold md:text-4xl">
+      <div className="max-w-4000px relative hidden max-h-full w-full flex-1 flex-col gap-3 overflow-hidden  bg-[#2E364F] pl-24 pt-10 lg:flex">
+        <h2 className="text-orangish font-bold md:text-4xl">
           Hi, I’m your AI powered sales assistant, Makingna!
         </h2>
-        <p className="text-iridium mb-10 md:text-sm">
+        <p className="text-orangish mb-10 md:text-sm">
           Makingna is capable of capturing lead information without a form...{' '}
           <br />
           The intelligence platforms.

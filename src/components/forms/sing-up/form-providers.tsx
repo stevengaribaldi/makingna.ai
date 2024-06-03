@@ -14,7 +14,6 @@ const SignUpFormProvider = ({ children }: Props) => {
   const { methods, onHandleSubmit, loading } = useSignUpForm();
   return (
     <AuthContextPorvider>
-      b
       <FormProvider {...methods}>
         <form onSubmit={onHandleSubmit} className="h-full">
           <div className="flex h-full flex-col justify-between gap-3">

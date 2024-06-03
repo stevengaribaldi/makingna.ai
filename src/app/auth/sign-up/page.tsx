@@ -1,5 +1,7 @@
+'use client';
 import React from 'react';
 import SignUpFormProvider from '@/components/forms/sing-up/form-providers';
+import RegistrationFormstep from '@/components/forms/sing-up/registrationFormstep';
 
 type Props = {};
 
@@ -9,7 +11,7 @@ const SignUp = (props: Props) => {
       <div className="h-ful flex flex-col gap-3">
         <SignUpFormProvider>
           <div className="flex flex-col gap-3">
-            {/* <RegistrationFormstep> </RegistrationFormstep> */}
+            <RegistrationFormstep></RegistrationFormstep>
           </div>
         </SignUpFormProvider>
       </div>
