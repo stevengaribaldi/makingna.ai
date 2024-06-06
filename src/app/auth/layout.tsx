@@ -16,7 +16,7 @@ const LayoutProps = async ({ children }: Props) => {
     <div className="flex h-screen w-full justify-center">
       <div className="ld:w-full flex w-[600px] flex-col items-start p-6">
         <Image
-          src="/images/makingna.png"
+          src="/images/salamonMakingna.png"
           alt="LOGO"
           sizes="100vw"
           style={{
