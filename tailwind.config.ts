@@ -35,6 +35,11 @@ const config: Config = {
     },
     extend: {
       colors: {
+        herred:'#f55771',
+        tangerinedark: '#f7ad19',
+        tangerine: '#f27f0c',
+        damntblue:'#429ebd',
+        jellybean:'#da614e',
         gold: '#B78428',
         bluesky: '#2596be',
         darkgold: 'cca43b',
@@ -72,10 +77,12 @@ const config: Config = {
         peach: '#FFE0BD',
         platinum: '#E6E6E6',
         midnight: '#2E364F',
+        stella: '#23323f',
+        blackrock:'#010127',
+        midnightblue: '#003366',
         ghost: '#CDCDCD',
         grandis: '#FFC989',
         porcelain: '#F1F1F1',
-
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

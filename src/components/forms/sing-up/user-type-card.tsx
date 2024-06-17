@@ -29,7 +29,7 @@ const UserTypeCard = ({
       <Card
         className={cn(
           'w-full cursor-pointer ',
-          userType == value ? 'border-bluegray ' : 'hover:border-gray-300',
+          userType == value ? 'border-amber-950' : 'hover:border-gray-300',
         )}
       >
         <CardContent className="flex justify-between p-2">
@@ -37,7 +37,7 @@ const UserTypeCard = ({
             <Card
               className={cn(
                 'flex justify-center p-3',
-                userType == value && 'border-bluegray',
+                userType == value && 'border-amber-900 ',
               )}
             >
               <UserIcon
@@ -50,7 +50,9 @@ const UserTypeCard = ({
             <div className="">
               <CardDescription
                 className={cn(
-                  userType == value ? 'font-bold text-sienna' : 'text-gray-500',
+                  userType == value
+                    ? 'font-bold text-jellybean'
+                    : 'text-gray-500',
                 )}
               >
                 {title}
@@ -58,7 +60,7 @@ const UserTypeCard = ({
               <CardDescription
                 className={cn(
                   userType == value
-                    ? 'font-light text-chocolate'
+                    ? 'font-light text-jellybean'
                     : 'text-gray-500',
                 )}
               >
@@ -85,8 +87,10 @@ const UserTypeCard = ({
               //   userType == value ? 'bg-rose-500' : 'bg-transparent',
               // )}}
               className={cn(
-                'h-4 w-4 rounded-full border border-blue-200',
-                userType == value ? 'bg-[#f55771]' : 'bg-transparent',
+                'h-4 w-4 rounded-full',
+                userType == value
+                  ? 'border  border-blue-200 bg-[#f55771]'
+                  : 'border  border-gray-300 bg-slate-100',
               )}
             ></div>
           </div>
