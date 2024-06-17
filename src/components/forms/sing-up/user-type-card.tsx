@@ -28,8 +28,8 @@ const UserTypeCard = ({
     <Label htmlFor={value}>
       <Card
         className={cn(
-          'w-full cursor-pointer',
-          userType == value && 'border-midnight',
+          'w-full cursor-pointer ',
+          userType == value ? 'border-bluegray ' : 'hover:border-gray-300',
         )}
       >
         <CardContent className="flex justify-between p-2">
@@ -37,20 +37,20 @@ const UserTypeCard = ({
             <Card
               className={cn(
                 'flex justify-center p-3',
-                userType == value && 'border-midnight',
+                userType == value && 'border-bluegray',
               )}
             >
               <UserIcon
                 size={30}
                 className={cn(
-                  userType == value ? 'text-salmon' : 'text-gray-600',
+                  userType == value ? 'text-salmon' : 'text-gray-500',
                 )}
               />
             </Card>
             <div className="">
               <CardDescription
                 className={cn(
-                  userType == value ? 'font-bold text-sienna' : 'text-iridium',
+                  userType == value ? 'font-bold text-sienna' : 'text-gray-500',
                 )}
               >
                 {title}
@@ -59,7 +59,7 @@ const UserTypeCard = ({
                 className={cn(
                   userType == value
                     ? 'font-light text-chocolate'
-                    : 'text-iridium',
+                    : 'text-gray-500',
                 )}
               >
                 {text}
@@ -77,10 +77,16 @@ const UserTypeCard = ({
               className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
             />
             <div
+              //makes a circle
 
+              //{GOOD IDEA : className={cn(
+              //CHANGE THE h-2 for feature that are live or being used
+              //   'h-2 w-4 rounded-full border border-gray-400',
+              //   userType == value ? 'bg-rose-500' : 'bg-transparent',
+              // )}}
               className={cn(
-                'h-4 w-4 rounded-full border border-gray-400',
-                userType == value ? 'bg-rose-500' : 'bg-transparent',
+                'h-4 w-4 rounded-full border border-blue-200',
+                userType == value ? 'bg-[#f55771]' : 'bg-transparent',
               )}
             ></div>
           </div>

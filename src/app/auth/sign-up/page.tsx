@@ -2,6 +2,7 @@
 import React from 'react';
 import SignUpFormProvider from '@/components/forms/sing-up/form-providers';
 import RegistrationFormstep from '@/components/forms/sing-up/registrationFormstep';
+import ButtonHandler from '@/components/forms/sing-up/button-handlers';
 
 type Props = {};
 
@@ -11,7 +12,8 @@ const SignUp = (props: Props) => {
       <div className="h-ful flex flex-col gap-3">
         <SignUpFormProvider>
           <div className="flex flex-col gap-3">
-            <RegistrationFormstep></RegistrationFormstep>
+            <RegistrationFormstep />
+            <ButtonHandler/>
           </div>
         </SignUpFormProvider>
       </div>
