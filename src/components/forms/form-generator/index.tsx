@@ -4,6 +4,7 @@ import React from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import { Textarea } from '@/components/ui/textarea';
+// import { ShieldAlert } from 'lucide-react';
 
 type Props = {
   type: 'text' | 'email' | 'password';
@@ -49,7 +50,8 @@ const FormGenerator = ({
             errors={errors}
             name={name}
             render={({ message }) => (
-              <p className="text-red-600 font-extrabold mt-2">
+              <p className="text-bloodorange font-extrabold mt-2">
+                {/* <ShieldAlert /> */}
                 {message === 'Required' ? '' : message}
               </p>
             )}
@@ -72,7 +74,7 @@ const FormGenerator = ({
             errors={errors}
             name={name}
             render={({ message }) => (
-              <p className="text-red-400 mt-2">
+              <p className="bg text-bloodorange mt-2">
                 {message === 'Required' ? '' : message}
               </p>
             )}
@@ -84,7 +86,7 @@ const FormGenerator = ({
         <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
           {label && label}
           <Textarea
-            rows={lines || 4}
+            rows={lines}
             id={`input-${label}`}
             placeholder={placeholder}
             form={form}
@@ -95,7 +97,7 @@ const FormGenerator = ({
             errors={errors}
             name={name}
             render={({ message }) => (
-              <p className="text-red-400 mt-2">
+              <p className="bg-red-500 text-bloodorange mt-2">
                 {message === 'Required' ? '' : message}
               </p>
             )}

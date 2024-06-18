@@ -1,6 +1,5 @@
 'use client';
 import { useAuthContextHook } from '@/context/use-auth-context';
-import { cn } from '@/lib/utils';
 import React from 'react';
 
 type Props = {};
@@ -8,7 +7,7 @@ type Props = {};
 const HighlightBar = (props: Props) => {
   const { currentStep } = useAuthContextHook();
   return (
-    <div className="grid pt-32  grid-cols-3 gap-3">
+    <div className="grid  grid-cols-3 gap-3">
       <div className="col-span-1  rounded-full">
         {currentStep == 1 ? (
           <div className="relative inline-flex h-2.5 w-full overflow-hidden rounded-full p-[0.5px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">

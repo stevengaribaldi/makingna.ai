@@ -51,7 +51,7 @@ const UserTypeCard = ({
               <CardDescription
                 className={cn(
                   userType == value
-                    ? 'font-bold text-jellybean'
+                    ? 'font-bold text-blood'
                     : 'text-gray-500',
                 )}
               >
@@ -89,7 +89,7 @@ const UserTypeCard = ({
               className={cn(
                 'h-4 w-4 rounded-full',
                 userType == value
-                  ? 'border  border-blue-200 bg-[#f55771]'
+                  ? 'border  border-blue-200 bg-[#f87187]'
                   : 'border  border-gray-300 bg-slate-100',
               )}
             ></div>

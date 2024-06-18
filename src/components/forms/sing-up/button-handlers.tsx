@@ -28,30 +28,33 @@ const ButtonHandler = (props: Props) => {
         <div className="">
           <Link
             href="/auth/sign-in"
-            className="group flex items-center  justify-center gap-1  text-[#36454F]"
+            className="group  inline-flex justify-center gap-1  text-[#36454F]"
           >
-            <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center"></span>
-            Already have an Account?
-            <div className="font-bold text-tikolight  hover:font-bold group-hover:text-cyan-600">
-              Sign In
-            </div>
-            <svg
-              className="duration-2500  animate-pulse text-tikolight"
-              fill="none"
-              height="16"
-              viewBox="0 -2 24 24"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10.75 8.75L14.25 12L10.75 15.25"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-              />
-            </svg>
-            <span className=" absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-500 group-hover:opacity-40 " />
+            <button className="mt-0.5 items-center  inline-flex justify-center bg-custom-black no-underline group cursor-pointer   relative w-full rounded-full p-px  font-semibold leading-9  ">
+              <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center"></span>
+              <span className="font-light">Already have an Account?&nbsp;</span>
+              <div className="font-bold text-tikolight  hover:font-bold group-hover:text-cyan-600">
+                {' '}
+                Sign In
+              </div>
+              <svg
+                className="duration-2500  animate-pulse text-tikolight"
+                fill="none"
+                height="16"
+                viewBox="0 -2 24 24"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.75 8.75L14.25 12L10.75 15.25"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+              <span className=" absolute -bottom-0 left-[12.525rem] h-px w-[calc(20%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
+            </button>
           </Link>
         </div>
       </div>
@@ -80,28 +83,33 @@ const ButtonHandler = (props: Props) => {
         <div className="">
           <Link
             href="/auth/sign-in"
-            className="group flex items-center  justify-center gap-1  text-[#36454F]"
+            className="group  inline-flex justify-center gap-1  text-[#36454F]"
           >
-            Already have an Account?
-            <div className="font-bold text-tikolight  hover:font-bold group-hover:text-cyan-600">
-              Sign In
-            </div>
-            <svg
-              className="duration-2500  animate-pulse text-tikolight"
-              fill="none"
-              height="16"
-              viewBox="0 -2 24 24"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10.75 8.75L14.25 12L10.75 15.25"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-              />
-            </svg>
+            <button className="mt-0.5 items-center  inline-flex justify-center bg-custom-black no-underline group cursor-pointer   relative w-full rounded-full p-px  font-semibold leading-9  ">
+              <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center"></span>
+              <span className="font-light">Already have an Account?&nbsp;</span>
+              <div className="font-bold text-tikolight  hover:font-bold group-hover:text-cyan-600">
+                {' '}
+                Sign In
+              </div>
+              <svg
+                className="duration-2500  animate-pulse text-tikolight"
+                fill="none"
+                height="16"
+                viewBox="0 -2 24 24"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.75 8.75L14.25 12L10.75 15.25"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+              <span className=" absolute -bottom-0 left-[12.525rem] h-px w-[calc(20%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
+            </button>
           </Link>
         </div>
       </div>
