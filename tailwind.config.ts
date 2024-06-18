@@ -35,6 +35,7 @@ const config: Config = {
     },
     extend: {
       colors: {
+        bone:'#E9e2d6',
         herred:'#f55771',
         tangerinedark: '#f7ad19',
         tangerine: '#f27f0c',
@@ -73,6 +74,7 @@ const config: Config = {
         carafe: '#56382D',
         brownish: '#372C2E',
         yellowish: '#DE9E48',
+        theorange:'#e95e10',
         orangish: '#f2833e',
         peach: '#FFE0BD',
         platinum: '#E6E6E6',

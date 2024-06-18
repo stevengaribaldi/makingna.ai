@@ -4,6 +4,13 @@ import { useAuthContextHook } from '@/context/use-auth-context';
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import TypeSelectionForm from './type-selection-form';
+import dynamic from 'next/dynamic';
+import { Spinner } from '@/components/spinner';
+
+const DetailsForm = dynamic(() => import('./account-details-form'), {
+  ssr: false,
+  loading: Spinner,
+});
 
 type Props = {};
 
@@ -29,6 +36,8 @@ const RegistrationFormstep = (props: Props) => {
         />
       );
     case 2:
+      return <DetailsForm
+      errors={errors}></DetailsForm>;
     case 3:
   }
   return <div>RegistrationFormstep</div>;

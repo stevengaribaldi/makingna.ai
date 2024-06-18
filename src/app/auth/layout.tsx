@@ -13,10 +13,10 @@ const LayoutProps = async ({ children }: Props) => {
   if (user) redirect('/');
 
   return (
-    <div className="flex h-screen w-full justify-center">
+    <div className="flex h-screen bg-[#fefced] w-full justify-center">
       <div className="ld:w-full flex w-[600px] flex-col items-start p-6">
         <Image
-          src="/images/salamonMakingna.png"
+          src="/images/bluemakingna.png"
           alt="LOGO"
           sizes="100vw"
           style={{
@@ -26,6 +26,7 @@ const LayoutProps = async ({ children }: Props) => {
           width={0}
           height={0}
         />
+
         {children}
       </div>
       <div className="max-w-4000px relative hidden max-h-full w-full flex-1 flex-col gap-3 overflow-hidden  bg-[#2E364F] pl-24 pt-10 lg:flex">

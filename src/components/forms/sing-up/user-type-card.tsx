@@ -28,8 +28,8 @@ const UserTypeCard = ({
     <Label htmlFor={value}>
       <Card
         className={cn(
-          'w-full cursor-pointer ',
-          userType == value ? 'border-amber-950' : 'hover:border-gray-300',
+          'w-full cursor-pointer  ',
+          userType == value ? 'bg-bone' : 'hover:border-gray-300',
         )}
       >
         <CardContent className="flex justify-between p-2">
