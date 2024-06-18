@@ -9,6 +9,7 @@ import { Spinner } from '@/components/spinner';
 
 const DetailsForm = dynamic(() => import('./account-details-form'), {
   ssr: false,
+  //@ts-ignore
   loading: Spinner,
 });
 
@@ -36,8 +37,7 @@ const RegistrationFormstep = (props: Props) => {
         />
       );
     case 2:
-      return <DetailsForm
-      errors={errors}></DetailsForm>;
+      return <DetailsForm errors={errors} register={register}></DetailsForm>;
     case 3:
   }
   return <div>RegistrationFormstep</div>;
