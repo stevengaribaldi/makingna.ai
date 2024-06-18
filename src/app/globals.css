@@ -83,6 +83,7 @@ body {
   }
 }
 
+
 @layer base {
   * {
     @apply border-border;
@@ -152,6 +153,7 @@ body {
   --s-accent: 100%;
   --l-accent: 50%;
 }
+
 
 .parsed-container img {
   width: 100% !important;

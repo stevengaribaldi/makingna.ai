@@ -4,6 +4,7 @@ import React from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import { Textarea } from '@/components/ui/textarea';
+import { cn } from '@/lib/utils';
 // import { ShieldAlert } from 'lucide-react';
 
 type Props = {
@@ -33,30 +34,37 @@ const FormGenerator = ({
   form,
   defaultValue,
 }: Props) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Form submitted');
+  };
   switch (inputType) {
     case 'input':
     default:
       return (
-        <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
-          <Input
-            id={`input-${label}`}
-            type={type}
-            placeholder={placeholder}
-            form={form}
-            defaultValue={defaultValue}
-            {...register(name)}
-          />
-          <ErrorMessage
-            errors={errors}
-            name={name}
-            render={({ message }) => (
-              <p className="text-bloodorange font-extrabold mt-2">
-                {/* <ShieldAlert /> */}
-                {message === 'Required' ? '' : message}
-              </p>
-            )}
-          />
-        </Label>
+        <LabelInputContainer className="mb-2">
+          <Label className="flex flex-col gap-2" htmlFor={`input-${label}`}>
+            <Input
+              className=" ring-2 ring-[#4cffff]  hover:ring-opacity-90 "
+              id={`input-${label}`}
+              type={type}
+              placeholder={placeholder}
+              form={form}
+              defaultValue={defaultValue}
+              {...register(name)}
+            />
+            <ErrorMessage
+              errors={errors}
+              name={name}
+              render={({ message }) => (
+                <p className="text-bloodorange font-extrabold mt-2">
+                  {/* <ShieldAlert /> */}
+                  {message === 'Required' ? '' : message}
+                </p>
+              )}
+            />
+          </Label>
+        </LabelInputContainer>
       );
     case 'select':
       return (
@@ -107,3 +115,17 @@ const FormGenerator = ({
   }
 };
 export default FormGenerator;
+
+const LabelInputContainer = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <div className={cn('flex flex-col space-y-2 w-full', className)}>
+      {children}
+    </div>
+  );
+};

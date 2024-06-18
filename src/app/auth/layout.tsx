@@ -13,7 +13,7 @@ const LayoutProps = async ({ children }: Props) => {
   if (user) redirect('/');
 
   return (
-    <div className="flex h-screen bg-[#fefced] w-full justify-center">
+    <div className="flex h-screen -mt-4 bg-[#fefced] w-full justify-center">
       <div className="ld:w-full flex w-[600px] flex-col items-start p-6">
         <Image
           src="/images/bluemakingna.png"
