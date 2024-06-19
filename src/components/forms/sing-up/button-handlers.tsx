@@ -25,7 +25,6 @@ const ButtonHandler = (props: Props) => {
         >
           Create an Account
         </Button>
-        <div className="">
           <Link
             href="/auth/sign-in"
             className="group  inline-flex justify-center gap-1  text-[#36454F]"
@@ -57,13 +56,12 @@ const ButtonHandler = (props: Props) => {
             </button>
           </Link>
         </div>
-      </div>
     );
   }
 
   if (currentStep === 2) {
     return (
-      <div className="flex w-full -mt-7 flex-col items-center gap-3">
+      <div className="flex w-full pt-12 -mt-7 flex-col items-center gap-3">
         <Button
           type="submit"
           className=" group/btn hover:-translate-y-0.3 hover:ring-1n relative  h-10 w-full rounded-md bg-slate-950 bg-gradient-to-r  from-slate-800/0 via-slate-800/90 to-slate-800/0 text-lg font-medium text-[#fafafa] transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)]   hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40"
@@ -80,7 +78,6 @@ const ButtonHandler = (props: Props) => {
         >
           Continue{' '}
         </Button>
-        <div className="">
           <Link
             href="/auth/sign-in"
             className="group  inline-flex justify-center gap-1  text-[#36454F]"
@@ -111,10 +108,11 @@ const ButtonHandler = (props: Props) => {
               <span className=" absolute -bottom-0 left-[12.525rem] h-px w-[calc(20%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
             </button>
           </Link>
-        </div>
+
       </div>
     );
   }
+
   return (
     <div className=" flex w-full  flex-col items-center gap-3">
       <Button
@@ -138,7 +136,6 @@ const ButtonHandler = (props: Props) => {
         </div>
       </div> */}
 
-      <div className="">
         <Link
           href="/auth/sign-in"
           className="group  inline-flex justify-center gap-1  text-[#36454F]"
@@ -169,7 +166,6 @@ const ButtonHandler = (props: Props) => {
             <span className=" absolute -bottom-0 left-[12.525rem] h-px w-[calc(20%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
           </button>
         </Link>
-      </div>
     </div>
   );
 };

@@ -35,5 +35,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 # Ignore form-generator file
-src/components/forms/form-generator/index.tsx
-src/components/forms/form-generator

@@ -219,6 +219,7 @@ const config: Config = {
         },
       },
       animation: {
+        
         first: 'moveVertical 30s ease infinite',
         second: 'moveInCircle 20s reverse infinite',
         third: 'moveInCircle 40s linear infinite',

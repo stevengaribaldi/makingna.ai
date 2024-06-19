@@ -13,6 +13,11 @@ const DetailsForm = dynamic(() => import('./account-details-form'), {
   loading: Spinner,
 });
 
+const OTPForm = dynamic(() => import('./otp-form'), {
+  ssr: false,
+  //@ts-ignore
+  loading: Spinner,
+});
 type Props = {};
 
 const RegistrationFormstep = (props: Props) => {
@@ -39,6 +44,12 @@ const RegistrationFormstep = (props: Props) => {
     case 2:
       return <DetailsForm errors={errors} register={register}></DetailsForm>;
     case 3:
+      return (
+        <OTPForm
+          onOTP={onOTP}
+          setOTP={setOnOTP}
+        />
+      )
   }
   return <div>RegistrationFormstep</div>;
 };

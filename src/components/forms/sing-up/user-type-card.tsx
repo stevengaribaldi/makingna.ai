@@ -1,6 +1,6 @@
 'use client';
 import { Card, CardContent, CardDescription } from '@/components/ui/card';
-import { InputBasic } from '@/components/ui/inputbasic';
+import { Input } from '@/components/ui/inputmath';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 import { UserIcon } from 'lucide-react';
@@ -67,7 +67,7 @@ const UserTypeCard = ({
             </div>
           </div>
           <div className="relative">
-            <InputBasic
+            <Input
               {...register('type', {
                 onChange: (e) => setUserType(e.target.value),
               })}
