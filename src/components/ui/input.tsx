@@ -25,29 +25,39 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         style={{
           background: useMotionTemplate`
         radial-gradient(
-          ${visible ? radius + 'px' : '0px'} circle at ${mouseX}px ${mouseY}px,
-          var(--gold),
-          transparent 90%
+          ${visible ? radius + 'px' : '500px'} circle at ${mouseX}px ${mouseY}px,
+         var(--cyan-800),
+          transparent 80%
         )
       `,
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
-        className="p-[2px] rounded-lg transition duration-300 group/input"
+        className="p-[3px] rounded-lg transition duration-300 group/input"
       >
         <input
           type={type}
           className={cn(
-            `flex h-10 w-full border-none bg-cream  text-midnightblue font-semibold dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent
-          file:text-sm file:font-medium placeholder:text-[#2C3539] dark:placeholder-text-neutral-600
-          focus-visible:outline-none focus-visible:ring-[1px]  focus-visible:ring-yellowish dark:focus-visible:ring-neutral-600
+            `flex h-10 w-full border-none bg-white  text-midnightblue font-semibold dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent
+          file:text-sm file:font-medium  placeholder:text-gray-500 dark:placeholder-text-neutral-600
+          focus-visible:outline-[2px] focus-visible:ring-[2px]  focus-visible:ring-midnighblue dark:focus-visible:ring-neutral-600
            disabled:cursor-not-allowed disabled:opacity-50
            dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
            group-hover/input:shadow-none transition duration-400
            `,
             className,
           )}
+          // className={cn(
+          //   `flex h-10 w-full border-none bg-white  text-midnightblue  dark:bg-zinc-800  dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent
+          // file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
+          // focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
+          //  disabled:cursor-not-allowed disabled:opacity-50
+          //  dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
+          //  group-hover/input:shadow-none transition duration-400
+          //  `,
+          //   className,
+          // )}
           ref={ref}
           {...props}
         />
