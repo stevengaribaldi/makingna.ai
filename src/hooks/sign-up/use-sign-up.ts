@@ -15,6 +15,8 @@ import { onCompleteUserRegistration } from '@/actions/auth/index';
 export const useSignUpForm = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState<boolean>(false);
+  const [showErrors, setShowErrors] = useState<boolean>(false); 
+
   const { signUp, isLoaded, setActive } = useSignUp();
   const router = useRouter();
   const methods = useForm<UserRegistrationProps>({
@@ -94,5 +96,7 @@ export const useSignUpForm = () => {
     onHandleSubmit,
     onGenerateOTP,
     loading,
+    showErrors,
+    setShowErrors,
   };
 };

@@ -26,6 +26,7 @@ type Props = {
   lines?: number;
   form?: string;
   defaultValue?: string;
+  showErrors: boolean;
 };
 
 const FormGenerator = ({
@@ -40,21 +41,15 @@ const FormGenerator = ({
   lines,
   form,
   defaultValue,
+  showErrors,
 }: Props) => {
-  const { setValue } = useFormContext();
+  const { watch } = useFormContext();
   const [isFocused, setIsFocused] = useState(false);
-  const [hasValue, setHasValue] = useState(defaultValue ? true : false);
+  const value = watch(name, defaultValue);
 
   const handleFocus = () => setIsFocused(true);
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    setIsFocused(false);
-    setHasValue(e.target.value !== '');
-  };
+  const handleBlur = () => setIsFocused(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setHasValue(e.target.value !== '');
-    setValue(name, e.target.value, { shouldValidate: true });
-  };
   switch (inputType) {
     case 'input':
     default:
@@ -66,12 +61,12 @@ const FormGenerator = ({
               <Label
                 className={cn(
                   'absolute left-3 px-1  py-0 text-sm rounded-md  ml-0 pt-0 transition-all pointer-events-none',
-                  isFocused || hasValue
+                  isFocused || value
                     ? 'top-[-2.5px] text-tiko font-medium bg-white '
                     : 'top-1/3 -translate-y-1/10 text-md font-semibold text-gray-500 bg-white',
                 )}
                 htmlFor={`input-${label}`}
-                style={{ marginBottom: '-10px' }} // Adjusted to use marginBottom
+                style={{ marginBottom: '-10px' }}
               >
                 {placeholder}
               </Label>
@@ -84,20 +79,21 @@ const FormGenerator = ({
                 {...register(name)}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                onChange={handleChange}
-                style={{ outlineOffset: '2px', outlineColor: '#034c52' }} // Add outline-offset style
+                style={{ outlineOffset: '2px', outlineColor: '#034c52' }}
               />
             </LabelInputContainer>
           </div>
-          <ErrorMessage
-            errors={errors}
-            name={name}
-            render={({ message }) => (
-              <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
-                {message === 'Required' ? '' : message}
-              </p>
-            )}
-          />
+          {showErrors && (
+            <ErrorMessage
+              errors={errors}
+              name={name}
+              render={({ message }) => (
+                <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
+                  {message === 'Required' ? '' : message}
+                </p>
+              )}
+            />
+          )}
         </div>
       );
     case 'select':
@@ -112,15 +108,17 @@ const FormGenerator = ({
                 </option>
               ))}
           </select>
-          <ErrorMessage
-            errors={errors}
-            name={name}
-            render={({ message }) => (
-              <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
-                {message === 'Required' ? '' : message}
-              </p>
-            )}
-          />
+          {showErrors && (
+            <ErrorMessage
+              errors={errors}
+              name={name}
+              render={({ message }) => (
+                <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
+                  {message === 'Required' ? '' : message}
+                </p>
+              )}
+            />
+          )}
         </Label>
       );
     case 'textarea':
@@ -135,15 +133,17 @@ const FormGenerator = ({
             defaultValue={defaultValue}
             {...register(name)}
           />
-          <ErrorMessage
-            errors={errors}
-            name={name}
-            render={({ message }) => (
-              <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
-                {message === 'Required' ? '' : message}
-              </p>
-            )}
-          />
+          {showErrors && (
+            <ErrorMessage
+              errors={errors}
+              name={name}
+              render={({ message }) => (
+                <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
+                  {message === 'Required' ? '' : message}
+                </p>
+              )}
+            />
+          )}
         </Label>
       );
   }
