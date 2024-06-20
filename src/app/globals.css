@@ -273,13 +273,13 @@ input:-webkit-autofill:active {
   border: 2px solid #bfafb2;
   border-radius: 0.5rem;
   line-height: 3rem;
-  background-color: #fffcfd;
-  color: #015c63;
+  background-color: #eee8e8;
+  color: #015157;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
 .otp-slot:focus {
-  border-color: #297ed9;
+  /* border-color: #297ed9; */
   background-color: #1d81a2;
   color: #0e2094;
   outline: none;

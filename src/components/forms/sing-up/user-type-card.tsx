@@ -50,7 +50,9 @@ const UserTypeCard = ({
             <div className="">
               <CardDescription
                 className={cn(
-                  userType == value ? ' font-bold text-saddelbrown' : 'text-gray-500',
+                  userType == value
+                    ? ' font-bold text-salmon'
+                    : 'text-gray-500',
                 )}
               >
                 {title}

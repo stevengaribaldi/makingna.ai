@@ -1,5 +1,5 @@
 'use client';
-import { Input } from '@/components/ui/input';
+import { Input } from '@/components/ui/inputmath';
 import { Label } from '@/components/ui/label';
 import React, { useState } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
