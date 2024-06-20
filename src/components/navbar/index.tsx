@@ -20,16 +20,51 @@ function NavBar() {
           height={0}
         />
       </div>
-      <ul className="gap-5 justify-between self-stretch my-auto text-sm leading-5 text-neutral-700 max-md:flex-wrap max-md:max-w-full font-normal hidden md:flex">
-        <li>Home</li>
-        <li>Pricing</li>
-        <li>News Room</li>
-        <li>Features</li>
-        <li>Contact us</li>
+      <ul className="gap-1 md:-mr-[55px] lg:mr-0 justify-between self-stretch my-auto text-sm leading-5  max-md:flex-wrap max-md:max-w-full font-normal hidden md:flex">
+        <li
+          className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                      hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
+                       px-4 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
+        >
+          {' '}
+          Home
+        </li>
+        <li
+          className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                      hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
+                       px-5 py-2 rounded-md text-midnightblue bg-custom-black   transition duration-200 ease-linear"
+        >
+          {' '}
+          Pricing
+        </li>
+        <li
+          className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                      hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
+                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
+        >
+          {' '}
+          News Room
+        </li>
+        <li
+          className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                      hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
+                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
+        >
+          {' '}
+          Features
+        </li>
+        <li
+          className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                      hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
+                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
+        >
+          {' '}
+          Contact us
+        </li>
       </ul>
       <Link
         href="/dashboard"
-        className="bg-orange px-4 py-2 rounded-sm text-white"
+        className="bg-bone px-4 py-2 hover:text-base  hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-3 text-herred rounded-sm "
       >
         Free Trial
       </Link>
@@ -38,3 +73,10 @@ function NavBar() {
 }
 
 export default NavBar;
+{
+  /* <li
+          className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                      hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
+                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
+> */
+}

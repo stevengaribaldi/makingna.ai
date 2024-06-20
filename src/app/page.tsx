@@ -5,15 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Home() {
-
   return (
     <main>
       <NavBar />
       <section>
         <div className="flex items-center justify-center flex-col mt-[80px] gap-4 ">
-          <span className="text-orange bg-orange/20 px-4 py-2 rounded-full text-sm">
-            Introducing xMakingna: An AI powered sales assistant chatbot
+          <span className="text-stella   px-4 py-2 rounded-full text-sm inline-flex items-center">
+            Introducing&nbsp; <span className="font-bold text-midnightblue"> xMakingna</span>: An
+            AI powered sales assistant chatbot
           </span>
+
           <Image
             src="/images/bluemakingna.png"
             width={60}
@@ -21,8 +22,9 @@ export default async function Home() {
             alt="Logo"
             className="max-w-lg object-contain"
           />
-          <p className="text-center max-w-[500px]">
-            Enhance your website with xMakingna intelligence. Integrate our AI
+          <p className="text-center max-w-[500px] text-midnight">
+            Enhance your website with{' '}
+            <span>xMakingna intelligence. Integrate our AI</span>
             assistant with a simple snippet of code and transform your sales
             experience.
           </p>
