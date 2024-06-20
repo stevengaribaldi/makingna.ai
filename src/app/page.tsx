@@ -11,13 +11,13 @@ export default async function Home() {
       <section>
         <div className="flex items-center justify-center flex-col mt-[80px] gap-4 ">
           <span className="text-stella   px-4 py-2 rounded-full text-sm inline-flex items-center">
-            Introducing&nbsp; <span className="font-bold text-midnightblue"> xMakingna</span>: An
+            Introducing&nbsp; <span className="font-thin text-midnightblue"> xMakingna</span>: An
             AI powered sales assistant chatbot
           </span>
 
           <Image
-            src="/images/bluemakingna.png"
-            width={60}
+            src="/images/xMakingna_sans_f55771.png"
+            width={1000}
             height={30}
             alt="Logo"
             className="max-w-lg object-contain"
@@ -32,7 +32,7 @@ export default async function Home() {
             Start For Free
           </Button>
           <Image
-            src="/images/bluemakingna.png"
+            src="/images/xMakingna_sans_f55771.png"
             width={50}
             height={100}
             alt="Logo"

@@ -6,21 +6,21 @@ import Link from 'next/link';
 function NavBar() {
   return (
     <div className="flex gap-5 justify-between items-center px-7 py-1 font-bold border-b border-solid border-zinc-100 leading-[154.5%] max-md:flex-wrap max-md:px-5">
-      <div className="flex gap-1.5 justify-center self-stretch my-auto text-2xl tracking-tighter text-neutral-700">
+      <div className="flex gap-1.5 -ml-5 -mr-10 justify-center self-stretch my-auto text-2xl tracking-tighter text-neutral-700">
         <Image
-          loading="lazy"
-          src="/images/bluemakingna.png"
+          // loading="lazy"
+          src="/images/xMakingnabluelogo.png"
           alt="LOGO"
-          sizes="10vw"
+          sizes="400vw"
           style={{
-            width: '69px',
+            width: '170px',
             height: 'auto',
           }}
           width={0}
           height={0}
         />
       </div>
-      <ul className="gap-1 md:-mr-[55px] lg:mr-0 justify-between self-stretch my-auto text-sm leading-5  max-md:flex-wrap max-md:max-w-full font-normal hidden md:flex">
+      <ul className="gap-1 md:-mr-[10px] lg:-ml-14 justify-between self-stretch my-auto text-sm leading-5  max-md:flex-wrap max-md:max-w-full font-normal hidden md:flex">
         <li
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
@@ -64,7 +64,7 @@ function NavBar() {
       </ul>
       <Link
         href="/dashboard"
-        className="bg-bone px-4 py-2 hover:text-base  hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-3 text-herred rounded-sm "
+        className="bg-bone px-4 py-2 hover:text-sm  hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-3 text-herred rounded-sm "
       >
         Free Trial
       </Link>
