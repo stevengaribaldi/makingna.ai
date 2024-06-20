@@ -15,7 +15,7 @@ const words = 'Account details';
 
 const AccountDetailsForm = ({ register, errors }: Props) => {
   return (
-    <div className="max-w-md w-full bg-bone mx-auto -mt-0 rounded-sm md:rounded-2xl pr-10 pl-10 shadow-[0_-1px_20px_rgba(250,128,114,50%)]">
+    <div className="max-w-md w-full bg-bone mx-auto -mt-20 rounded-sm md:rounded-2xl pr-10 pl-10 shadow-[0_-1px_20px_rgba(250,128,114,50%)]">
       <div className="pb-1 -mt-1.5 rounded-sm">
         <h2 className="text-midnightblue md:text-4xl font-bold">
           <TextGenerateEffect words={words} />
