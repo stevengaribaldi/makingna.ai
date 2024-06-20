@@ -258,7 +258,34 @@ input:-webkit-autofill:active {
   animation-duration: 1s;
 }
 
-input:-moz-ui-autofill,
+
+.otp-container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.otp-slot {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 2px solid #bfafb2;
+  border-radius: 0.5rem;
+  line-height: 3rem;
+  background-color: #fffcfd;
+  color: #015c63;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.otp-slot:focus {
+  border-color: #297ed9;
+  background-color: #1d81a2;
+  color: #0e2094;
+  outline: none;
+}
+
+/* input:-moz-ui-autofill,
 input:-moz-ui-autofill:hover,
 input:-moz-ui-autofill:focus,
 input:-moz-ui-autofill:active {
@@ -267,17 +294,17 @@ input:-moz-ui-autofill:active {
 
    animation-name: onAutoFillStart;
   animation-duration: 1s;
-}
+} */
 
 
-input:not(:-webkit-autofill) {
+/* input:not(:-webkit-autofill) {
   animation-name: onAutoFillCancel;
   animation-duration: 1s;
     caret-color: rgb(255, 255, 255) !important;
 
   color: rgb(0, 0, 0) !important;
     background: #ffffff !important;
-}
+} */
 
 
 .continuous-step-spin {

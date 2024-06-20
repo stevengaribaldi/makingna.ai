@@ -217,9 +217,13 @@ const config: Config = {
             backgroundPosition: '-200% 0',
           },
         },
+        blink: {
+          '0%, 100%': { borderColor: '#155e75' },
+          '50%': { borderColor: '#034c52' },
+        },
       },
       animation: {
-        
+        'blink-border': 'blink 1.5s infinite',
         first: 'moveVertical 30s ease infinite',
         second: 'moveInCircle 20s reverse infinite',
         third: 'moveInCircle 40s linear infinite',

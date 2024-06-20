@@ -18,7 +18,6 @@ type Props = {
   inputType: 'select' | 'input' | 'textarea';
   options?: { value: string; label: string; id: string }[];
   label?: string;
-
   placeholder: string;
   register: UseFormRegister<FieldValues>;
   name: string;
@@ -26,7 +25,6 @@ type Props = {
   lines?: number;
   form?: string;
   defaultValue?: string;
-  showErrors: boolean;
 };
 
 const FormGenerator = ({
@@ -41,7 +39,7 @@ const FormGenerator = ({
   lines,
   form,
   defaultValue,
-  showErrors,
+
 }: Props) => {
   const { watch } = useFormContext();
   const [isFocused, setIsFocused] = useState(false);
@@ -83,7 +81,7 @@ const FormGenerator = ({
               />
             </LabelInputContainer>
           </div>
-          {showErrors && (
+
             <ErrorMessage
               errors={errors}
               name={name}
@@ -93,7 +91,7 @@ const FormGenerator = ({
                 </p>
               )}
             />
-          )}
+
         </div>
       );
     case 'select':
@@ -108,7 +106,7 @@ const FormGenerator = ({
                 </option>
               ))}
           </select>
-          {showErrors && (
+
             <ErrorMessage
               errors={errors}
               name={name}
@@ -118,7 +116,7 @@ const FormGenerator = ({
                 </p>
               )}
             />
-          )}
+
         </Label>
       );
     case 'textarea':
@@ -133,7 +131,6 @@ const FormGenerator = ({
             defaultValue={defaultValue}
             {...register(name)}
           />
-          {showErrors && (
             <ErrorMessage
               errors={errors}
               name={name}
@@ -143,7 +140,6 @@ const FormGenerator = ({
                 </p>
               )}
             />
-          )}
         </Label>
       );
   }
