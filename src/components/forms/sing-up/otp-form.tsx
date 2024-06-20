@@ -1,17 +1,19 @@
 'use client';
 import OTPInput from '@/components/otp';
-import React from 'react'
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
+import React from 'react';
 
 type Props = {
-  setOTP: React.Dispatch<React.SetStateAction<string>>
-  onOTP: string
-}
+  setOTP: React.Dispatch<React.SetStateAction<string>>;
+  onOTP: string;
+};
+const words = 'OTP Verifications';
 
 const OTPForm = ({ onOTP, setOTP }: Props) => {
   return (
     <>
       <h2 className="text-midnightblue md:text-4xl font-bold">
-      OTP Verification
+        <TextGenerateEffect words={words} />
       </h2>
       <p className="text-blue-950 md:text-sm">
         Enter the One-Time Passcode Verification (OTP)
@@ -21,6 +23,6 @@ const OTPForm = ({ onOTP, setOTP }: Props) => {
       </div>
     </>
   );
-}
+};
 
-export default OTPForm
+export default OTPForm;

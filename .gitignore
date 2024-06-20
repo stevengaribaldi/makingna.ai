@@ -35,3 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 # Ignore form-generator file
+src/hooks/sign-in/
+src/components/forms/sign-in/login-form.tsx
