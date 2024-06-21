@@ -3,6 +3,18 @@ import { Button } from '@/components/ui/button';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { pricingCards } from '@/constants/landing-page';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Check } from 'lucide-react';
+import clsx from 'clsx';
+import { BackgroundGradient } from '@/components/ui/background-gradient';
 
 export default async function Home() {
   return (
@@ -11,7 +23,8 @@ export default async function Home() {
       <section>
         <div className="flex items-center justify-center flex-col mt-[80px] gap-4 ">
           <span className="text-stella   px-4 py-2 rounded-full text-sm inline-flex items-center">
-            Introducing&nbsp; <span className="font-thin text-midnightblue"> xMakingna</span>: An
+            Introducing&nbsp;{' '}
+            <span className="font-thin text-midnightblue"> xMakingna</span> An
             AI powered sales assistant chatbot
           </span>
 
@@ -24,11 +37,13 @@ export default async function Home() {
           />
           <p className="text-center max-w-[500px] text-midnight">
             Enhance your website with{' '}
-            <span>xMakingna intelligence. Integrate our AI</span>
+            <span>xMakingna intelligence. Integrate our AI </span>
             assistant with a simple snippet of code and transform your sales
             experience.
           </p>
-          <Button className="bg-orange font-bold text-white px-4">
+
+          <Button className="  hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-slate-950 bg-gradient-to-r  from-slate-800/0 via-slate-800/90 to-slate-800/0 text-lg font-medium text-[#fafafa] transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)]   hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40">
+            {' '}
             Start For Free
           </Button>
           <Image
@@ -40,6 +55,77 @@ export default async function Home() {
           />
         </div>
       </section>
+      <div className="flex  justify-center gap-4 flex-wrap mt-6">
+        {pricingCards.map((card) => (
+          <Card
+            key={card.title}
+            className={clsx('w-[300px] flex flex-col justify-between', {
+              'border-0  bg-[linear-gradient(to_top_left,var(--pink-50),var(--bone))] ':
+                card.title === 'Pro',
+            })}
+          >
+            <CardHeader>
+              <CardTitle
+                className={clsx('text-midnightblue', {
+                  'text-cyan-600 ': card.title === 'Pro',
+                })}
+              >
+                {card.title}
+              </CardTitle>
+              <CardDescription className="text-stella">
+                {pricingCards.find((c) => c.title === card.title)?.description}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <span
+                className={clsx('text-4xl font-bold', {
+                  ' text-midnight ': card.title === 'Pro',
+                })}
+              >
+                {card.price}
+              </span>
+
+              <span
+                className={clsx('text-bluegray', {
+                  'text-gray-200': card.title === 'Pro',
+                })}
+              >
+                <span>/ month</span>
+              </span>
+            </CardContent>
+            <CardFooter className="flex flex-col items-start gap-4">
+              <div>
+                {card.features.map((feature) => (
+                  <div key={feature} className="flex gap-2">
+                    <Check
+                      className={clsx('text-tiko  font-extrabold', {
+                        ' text-bluesky )] rounded-sm ': card.title === 'Pro',
+                      })}
+                    />
+                    <p>{feature}</p>
+                  </div>
+                ))}
+              </div>
+              <div>
+                {card.title === 'Free' ? (
+                  <Link
+                    className="p-2 px-4  w-full gap-4 text-center hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-brownish text-lg font-medium transition-opacity duration-500 hover:bg-iridium  text-gray-200 hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40"
+                    href={`/dashbord?plan=${card.title}`}
+                  >
+                    Get Started
+                  </Link>
+                ) : (
+                  <Button className=" p-2 px-4 w-full gap-4 text-center  hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-slate-950 bg-gradient-to-r from-slate-800/0  to-slate-800/0 text-lg font-medium transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40">
+                    <Link href={`/dashbord?plan=${card.title}`}>
+                      Get Started
+                    </Link>
+                  </Button>
+                )}
+              </div>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
       <section className="flex justify-center items-center flex-col gap-4 mt-10">
         <h2 className="text-4xl text-center">
           {' '}

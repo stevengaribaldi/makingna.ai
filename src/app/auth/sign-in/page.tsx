@@ -47,7 +47,7 @@ const SignInPage = () => {
                       strokeWidth="1.5"
                     />
                   </svg>
-                  <span className=" absolute -bottom-0 left-[12.525rem] h-px w-[calc(20%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
+                  <span className=" absolute -bottom-0 left-[9.5rem] h-px w-[calc(50%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
                 </button>
               </Link>
               ;

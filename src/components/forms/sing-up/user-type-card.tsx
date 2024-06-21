@@ -43,7 +43,7 @@ const UserTypeCard = ({
               <UserIcon
                 size={30}
                 className={cn(
-                  userType == value ? 'text-salmon' : 'text-gray-500',
+                  userType == value ? 'text-salmondark' : 'text-gray-500',
                 )}
               />
             </Card>

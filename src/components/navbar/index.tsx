@@ -25,7 +25,7 @@ function NavBar() {
             width={0}
             height={0}
           /> */}
-          <div className="relative mt-2 mb-2">
+          <div className="relative mt-0 mb-2">
             <span
               className={`absolute top-0 left-[0.3px] ${bungeeHairline.className} text-midnightblue`}
             >
@@ -97,7 +97,17 @@ function NavBar() {
               <span style={{ fontSize: '0.8em' }}>x</span>Makingna{' '}
             </span>{' '}
             <span
-              className={`absolute top-0  -left-[0.8px] ${bungeeHairline.className} text-herred`}
+              className={`absolute top-0  -left-[0.8px] ${bungeeHairline.className} text-midnightblue`}
+            >
+              <span style={{ fontSize: '0.8em' }}>x</span>Makingna{' '}
+            </span>
+            <span
+              className={`absolute top-0  -left-[0.9px] ${bungeeHairline.className} text-midnightblue`}
+            >
+              <span style={{ fontSize: '0.8em' }}>x</span>Makingna{' '}
+            </span>
+            <span
+              className={`absolute top-0  -left-[1.0px] ${bungeeHairline.className} text-herred`}
             >
               <span style={{ fontSize: '0.8em' }}>x</span>Makingna{' '}
             </span>
@@ -180,7 +190,7 @@ function NavBar() {
         <li
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
-                       px-4 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
+                       px-4 py-2 rounded-md text-midnightblue bg-cream  transition hover:text-tikolight duration-200 ease-linear"
         >
           {' '}
           Home
@@ -188,7 +198,7 @@ function NavBar() {
         <li
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
-                       px-5 py-2 rounded-md text-midnightblue bg-custom-black   transition duration-200 ease-linear"
+                       px-5 py-2 rounded-md text-midnightblue bg-custom-black hover:text-tikolight transition duration-200 ease-linear"
         >
           {' '}
           Pricing
@@ -196,7 +206,7 @@ function NavBar() {
         <li
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
-                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
+                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition hover:text-tikolight duration-200 ease-linear"
         >
           {' '}
           News Room
@@ -204,7 +214,7 @@ function NavBar() {
         <li
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
-                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
+                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition hover:text-tikolight duration-200 ease-linear"
         >
           {' '}
           Features
@@ -212,27 +222,18 @@ function NavBar() {
         <li
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
-                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
+                       px-5 py-2 rounded-md text-midnightblue bg-cream hover:text-tikolight  transition duration-200 ease-linear"
         >
           {' '}
           Contact us
         </li>
       </ul>
-      <Link
-        href="/dashboard"
-        className="bg-bone px-4 py-2 hover:text-sm  hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-3 text-herred rounded-sm "
-      >
-        Free Trial
-      </Link>
+      <Button className="hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-slate-950 bg-gradient-to-r  px-4 py-2  from-slate-800/0 via-slate-800/90 to-slate-800/0 text-lg font-medium text-[#fafafa] transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)]   hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40 ">
+        <Link href="/dashboard">Free Trial</Link>
+      </Button>
     </div>
   );
 }
 
 export default NavBar;
-{
-  /* <li
-          className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
-                      hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2
-                       px-5 py-2 rounded-md text-midnightblue bg-cream  transition duration-200 ease-linear"
-> */
-}
+
