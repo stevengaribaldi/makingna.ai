@@ -16,8 +16,8 @@ export default async function Home() {
           </span>
 
           <Image
-            src="/images/xMakingna_sans_f55771.png"
-            width={1000}
+            src="/images/bluemakingna.png"
+            width={60}
             height={30}
             alt="Logo"
             className="max-w-lg object-contain"
@@ -32,7 +32,7 @@ export default async function Home() {
             Start For Free
           </Button>
           <Image
-            src="/images/xMakingna_sans_f55771.png"
+            src="/images/bluemakingna.png"
             width={50}
             height={100}
             alt="Logo"

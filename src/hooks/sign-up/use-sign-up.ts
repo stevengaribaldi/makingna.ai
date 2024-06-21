@@ -9,7 +9,6 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { error } from 'console';
 import { onCompleteUserRegistration } from '@/actions/auth/index';
 
 export const useSignUpForm = () => {
@@ -39,9 +38,10 @@ export const useSignUpForm = () => {
       await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
       onNext((prev) => prev + 1);
     } catch (error: any) {
+      const errorMessage = error.message?.[0]?.longMessage || 'An unexpected error occurred';
       toast({
         title: 'Error',
-        description: error.message[0].longMessage,
+        description: errorMessage,
       });
     }
   };
@@ -82,9 +82,10 @@ export const useSignUpForm = () => {
           }
         }
       } catch (error: any) {
+        const errorMessage = error.error?.[0]?.longMessage || 'An unexpected error occurred';
         toast({
           title: 'Error',
-          description: error.error[0].longMessage,
+          description: errorMessage,
         });
       }
     },
