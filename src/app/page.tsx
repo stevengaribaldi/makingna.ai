@@ -14,7 +14,6 @@ import {
 } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import clsx from 'clsx';
-import { BackgroundGradient } from '@/components/ui/background-gradient';
 
 export default async function Home() {
   return (
@@ -59,39 +58,46 @@ export default async function Home() {
         {pricingCards.map((card) => (
           <Card
             key={card.title}
-            className={clsx('w-[300px] flex flex-col justify-between', {
-              'border-0  bg-[linear-gradient(to_top_left,var(--pink-50),var(--bone))] ':
+            className={clsx('w-[300px]   flex flex-col justify-between', {
+              '  bg-[linear-gradient(to_top_left,var(--pink-50),var(--bone))] ':
                 card.title === 'Pro',
             })}
           >
             <CardHeader>
               <CardTitle
-                className={clsx('text-midnightblue', {
+                className={clsx('text-midnightblue ', {
                   'text-cyan-600 ': card.title === 'Pro',
+                  'text-midnight ': card.title === 'Free',
                 })}
               >
                 {card.title}
               </CardTitle>
-              <CardDescription className="text-stella">
+              <CardDescription className="text-stella  ">
                 {pricingCards.find((c) => c.title === card.title)?.description}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <span
-                className={clsx('text-4xl font-bold', {
-                  ' text-midnight ': card.title === 'Pro',
-                })}
-              >
-                {card.price}
-              </span>
+              <div className="-mt-1">
+                <div
+                  className={clsx('text-sm text-slate-900 font-bold', {
+                    ' text-midnight ': card.title === 'Pro',
+                  })}
+                >
+                  {card.topDescription}
+                </div>
 
-              <span
-                className={clsx('text-bluegray', {
-                  'text-gray-200': card.title === 'Pro',
-                })}
-              >
-                <span>/ month</span>
-              </span>
+                <span
+                  className={clsx('text-4xl text-iridium font-bold', {
+                    ' text-midnight ': card.title === 'Pro',
+                  })}
+                >
+                  {card.price}
+                </span>
+
+                <span className="text-muted-foreground">
+                  <span>/ month</span>
+                </span>
+              </div>
             </CardContent>
             <CardFooter className="flex flex-col items-start gap-4">
               <div>
@@ -99,7 +105,8 @@ export default async function Home() {
                   <div key={feature} className="flex gap-2">
                     <Check
                       className={clsx('text-tiko  font-extrabold', {
-                        ' text-bluesky )] rounded-sm ': card.title === 'Pro',
+                        'text-cyan-500  size-7 )] rounded-sm ':
+                          card.title === 'Pro',
                       })}
                     />
                     <p>{feature}</p>
@@ -108,14 +115,13 @@ export default async function Home() {
               </div>
               <div>
                 {card.title === 'Free' ? (
-                  <Link
-                    className="p-2 px-4  w-full gap-4 text-center hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-brownish text-lg font-medium transition-opacity duration-500 hover:bg-iridium  text-gray-200 hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40"
-                    href={`/dashbord?plan=${card.title}`}
-                  >
-                    Get Started
-                  </Link>
+                  <Button className="p-2 px-20  w-full gap-4 text-center hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-brownish text-lg font-medium transition-opacity duration-500 hover:bg-iridium  text-gray-200 hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40">
+                    <Link href={`/dashbord?plan=${card.title}`}>
+                      Get Started
+                    </Link>
+                  </Button>
                 ) : (
-                  <Button className=" p-2 px-4 w-full gap-4 text-center  hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-slate-950 bg-gradient-to-r from-slate-800/0  to-slate-800/0 text-lg font-medium transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40">
+                  <Button className="p-2 px-20 w-full flex-col ml- gap-4 text-center hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-slate-950 bg-gradient-to-r from-slate-800/0 to-slate-800/0 text-lg font-medium transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40 flex items-center justify-center">
                     <Link href={`/dashbord?plan=${card.title}`}>
                       Get Started
                     </Link>

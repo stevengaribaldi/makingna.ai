@@ -53,15 +53,15 @@ const FormGenerator = ({
     default:
       return (
         <div>
-          <div className="relative rounded-lg -bottom-0 -top-0 bg-white pb-0 mb-4">
+          <div className="relative rounded-lg -bottom-0 -top-0  pb-0 mb-4">
             <div className="absolute inset-x-0 top-0 h-1 bg-custom-black rounded-lg"></div>
             <LabelInputContainer className="relative -top-1 mb-2 w-full">
               <Label
                 className={cn(
                   'absolute left-3 px-1  py-0 text-sm rounded-md  ml-0 pt-0 transition-all pointer-events-none',
                   isFocused || value
-                    ? 'top-[-2.5px] text-tiko font-medium bg-white '
-                    : 'top-1/3 -translate-y-1/10 text-md font-semibold text-gray-500 bg-white',
+                    ? 'top-[-2.5px] font-medium bg-white '
+                    : 'top-1/3 -translate-y-1/10 text-md font-semibold text-gray-500 bg-transparent',
                 )}
                 htmlFor={`input-${label}`}
                 style={{ marginBottom: '-10px' }}
@@ -82,16 +82,15 @@ const FormGenerator = ({
             </LabelInputContainer>
           </div>
 
-            <ErrorMessage
-              errors={errors}
-              name={name}
-              render={({ message }) => (
-                <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
-                  {message === 'Required' ? '' : message}
-                </p>
-              )}
-            />
-
+          <ErrorMessage
+            errors={errors}
+            name={name}
+            render={({ message }) => (
+              <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
+                {message === 'Required' ? '' : message}
+              </p>
+            )}
+          />
         </div>
       );
     case 'select':

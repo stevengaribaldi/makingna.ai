@@ -277,6 +277,18 @@ input:-webkit-autofill:active {
   color: #015157;
   transition: background-color 0.3s, border-color 0.3s;
 }
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  background-color: white;
+  box-shadow: inset 2px 5px 10px rgb(95, 87, 88);
+}
 
 .otp-slot:focus {
   /* border-color: #297ed9; */

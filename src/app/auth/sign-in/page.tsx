@@ -14,9 +14,9 @@ const SignInPage = () => {
             <div className="w-full pt-5 flex flex-col gap-3 items-center">
               <Button
                 type="submit"
-                className=" group/btn hover:-translate-y-0.3 hover:ring-1n relative  h-10 w-full rounded-md bg-slate-950 bg-gradient-to-r  from-slate-800/0 via-slate-800/90 to-slate-800/0 text-lg font-medium text-[#fafafa] transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)]   hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40"
+                className="group/btn hover:-translate-y-0.3 hover:ring-1 mt-8 relative h-10 w-80 rounded-md bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90 to-slate-800/0 text-lg font-medium text-[#fafafa] transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40"
               >
-                Log in
+                Login
               </Button>
               <Link
                 href="/auth/sign-up"

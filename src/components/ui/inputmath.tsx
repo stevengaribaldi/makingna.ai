@@ -8,7 +8,7 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
-    const radius = 100; 
+    const radius = 100;
     const [visible, setVisible] = React.useState(false);
 
     let mouseX = useMotionValue(0);
@@ -25,30 +25,29 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         style={{
           background: useMotionTemplate`
         radial-gradient(
-          ${visible ? radius + 'px' : 'px'} circle at ${mouseX}px ${mouseY}px,
+          ${visible ? radius + 'px' : '1px'} circle at ${mouseX}px ${mouseY}px,
          var(--cyan-600),
-          transparent 80%
+          transparent 0%
         )
       `,
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
-        className="p-[1px] rounded-lg transition duration-300 group/input"
+        className="p-[0px] rounded-lg transition duration-300 group/input"
       >
         <input
           type={type}
           className={cn(
-            `flex h-10 w-full border-none bg-white  text-midnightblue font-semibold dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent
+            `flex h-10 field w-full border-none bg-white  text-black font-semibold dark:text-white shadow-input rounded-md px-8 py-2 text-sm  file:border-0 file:bg-transparent
           file:text-sm file:font-medium  placeholder:text-gray-500 dark:placeholder-text-neutral-600
           focus-visible:outline-[2px] focus-visible:ring-[2px]  focus-visible:ring-midnighblue dark:focus-visible:ring-neutral-600
            disabled:cursor-not-allowed disabled:opacity-50
-           dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
+           dark:shadow-[0px_0px_1px_1px_var(--neutral-700)] feild
            group-hover/input:shadow-none transition duration-400
            `,
             className,
           )}
-
           ref={ref}
           {...props}
         />
