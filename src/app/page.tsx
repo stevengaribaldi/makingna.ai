@@ -14,8 +14,18 @@ import {
 } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import clsx from 'clsx';
+import { onGetBlogPosts } from '@/landing';
 
 export default async function Home() {
+  const posts:
+    | {
+        id: string;
+        title: string;
+        image: string;
+        content: string;
+      }[]
+    | undefined = await onGetBlogPosts();
+
   return (
     <main>
       <NavBar />
@@ -34,14 +44,15 @@ export default async function Home() {
             <div className="carded-int">
               <div className="hello">
                 <Image
-                  src="/images/bluemakingna.png"
-                  width={60}
-                  height={30}
+                  src="/images/xMakingna_individual_letter_gradient.png"
+                  width={120}
+                  height={60}
                   alt="Logo"
                   className="max-w-lg object-contain"
                 />
-                <span className="hiddened">uiverse</span>
+                <span className="hiddened">xMAKINGNA</span>
               </div>
+              <iframe></iframe>
             </div>
             <div className="top">
               <div className="camera">
@@ -63,13 +74,24 @@ export default async function Home() {
             Start For Free
           </Button>
           <Image
-            src="/images/bluemakingna.png"
+            src="/images/xMakingna_individual_letter_gradient.png"
             width={50}
             height={100}
             alt="Logo"
             className="max-w-lg object-contain"
           />
         </div>
+      </section>
+      <section className="flex justify-center items-center flex-col gap-4 mt-10">
+        <h2 className="text-4xl text-center">
+          {' '}
+          Select the option that best fits your business needs.{' '}
+        </h2>
+        <p className="text-muted-foreground text-center max-w-lg">
+          Our clear and flexible pricing plans are tailored to meet your needs.
+          Not ready to commit just yet? Give our free plan a try and explore all
+          the benefits at no cost.
+        </p>
       </section>
       <div className="flex  justify-center gap-4 flex-wrap mt-6">
         {pricingCards.map((card) => (
@@ -149,22 +171,32 @@ export default async function Home() {
           </Card>
         ))}
       </div>
-      <section className="flex justify-center items-center flex-col gap-4 mt-10">
-        <h2 className="text-4xl text-center">
-          {' '}
-          Select the option that best suits your needs.
-        </h2>
-        <p className="text-muted-foreground text-center max-w-lg">
-          Our transparent pricing plans are designed to suit your needs. Not
-          ready to commit? Start with our free plan today.
-        </p>
-      </section>
 
       <section className="flex justify-center items-center flex-col gap-4 mt-28">
         <h2 className="text-4xl text-center">News Room</h2>
         <p className="text-muted-foreground text-center max-w-lg">
-          Discover our insights on AI, technology, and business optimization.
+          Explore our insights on AI, technology, and business optimization.
         </p>
+      </section>
+      <section className="md:grid-cols-3 grid-cols-1 grid gap-5 container mt-8">
+        {posts &&
+          posts.map((post) => (
+            <Link href={`/blog/${post.id}`} key={post.id}>
+              <Card className="flex flex-col gap-2 rounded-xl overflow-hidden h-full hover:bg-gray-100">
+                <div className="relative w-full aspect-video">
+                  <Image
+                    src={`${process.env.CLOUDWAYS_UPLOADS_URL}/${post.image}`}
+                    layout="fill"
+                    objectFit="cover"
+                    alt={post.title}
+                  />
+                </div>
+                <div>
+                  <CardDescription></CardDescription>
+                </div>
+              </Card>
+            </Link>
+          ))}
       </section>
     </main>
   );
