@@ -26,14 +26,31 @@ export default async function Home() {
             <span className="font-thin text-midnightblue"> xMakingna</span> An
             AI powered sales assistant chatbot
           </span>
+          <div className="carded">
+            <div className="btn1"></div>
+            <div className="btn2"></div>
+            <div className="btn3"></div>
+            <div className="btn4"></div>
+            <div className="carded-int">
+              <div className="hello">
+                <Image
+                  src="/images/bluemakingna.png"
+                  width={60}
+                  height={30}
+                  alt="Logo"
+                  className="max-w-lg object-contain"
+                />
+                <span className="hiddened">uiverse</span>
+              </div>
+            </div>
+            <div className="top">
+              <div className="camera">
+                <div className="int"></div>
+              </div>
+              <div className="speaker"></div>
+            </div>
+          </div>
 
-          <Image
-            src="/images/bluemakingna.png"
-            width={60}
-            height={30}
-            alt="Logo"
-            className="max-w-lg object-contain"
-          />
           <p className="text-center max-w-[500px] text-midnight">
             Enhance your website with{' '}
             <span>xMakingna intelligence. Integrate our AI </span>

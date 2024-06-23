@@ -228,7 +228,8 @@ function NavBar() {
           Contact us
         </li>
       </ul>
-      <Button className="hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-slate-950 bg-gradient-to-r  px-4 py-2  from-slate-800/0 via-slate-800/90 to-slate-800/0 text-lg font-medium text-[#fafafa] transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)]   hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40 ">
+      <Button className=" group/btn hover:-translate-y-0.3 hover:ring-1n relative  h-8 w-auto rounded-md bg-slate-950 bg-gradient-to-r  from-slate-800/0 via-slate-800/90 to-slate-800/0 text-md font-medium text-[#fafafa] transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)]   hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40">
+        {' '}
         <Link href="/dashboard">Free Trial</Link>
       </Button>
     </div>
@@ -236,4 +237,3 @@ function NavBar() {
 }
 
 export default NavBar;
-

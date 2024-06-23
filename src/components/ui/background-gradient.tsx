@@ -1,85 +1,182 @@
 'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import { useEffect, useRef, useState } from 'react';
 
-interface BackgroundGradientProps {
-  children?: React.ReactNode;
-  className?: string;
-  containerClassName?: string;
-  animate?: boolean;
-  colors?: {
-    color1?: string;
-    color2?: string;
-    color3?: string;
-    color4?: string;
-  };
-  backgroundSize?: string; // New prop for custom background size
-}
-
-export const BackgroundGradient = ({
+export const BackgroundGradientAnimation = ({
+  gradientBackgroundStart = 'rgb(227,228,230)',
+  gradientBackgroundEnd = 'rgb(227,228,230)',
+  firstColor = '18, 113, 255',
+  secondColor = '221, 74, 255',
+  thirdColor = '100, 220, 255',
+  fourthColor = '200, 50, 50',
+  fifthColor = '180, 180, 50',
+  pointerColor = '140, 100, 255',
+  size = '150%',
+  blendingValue = 'hard-light',
   children,
   className,
+  interactive = true,
   containerClassName,
-  animate = true,
-  colors = {
-    color1: '#18181b', // Dark gray
-    color2: '#7b61ff', // Purple
-    color3: '#ffc414', // Yellow
-    color4: '#1ca0fb', // Blue
-    // color5: "#141316",
-  },
-  backgroundSize = '400% 400%', // Default value for backgroundSize prop
-}: BackgroundGradientProps) => {
-  const variants = {
-    initial: {
-      backgroundPosition: '0 50%',
-    },
-    animate: {
-      backgroundPosition: ['0 50%', '100% 50%', '0 50%'],
-    },
+}: {
+  gradientBackgroundStart?: string;
+  gradientBackgroundEnd?: string;
+  firstColor?: string;
+  secondColor?: string;
+  thirdColor?: string;
+  fourthColor?: string;
+  fifthColor?: string;
+  pointerColor?: string;
+  size?: string;
+  blendingValue?: string;
+  children?: React.ReactNode;
+  className?: string;
+  interactive?: boolean;
+  containerClassName?: string;
+}) => {
+  const interactiveRef = useRef<HTMLDivElement>(null);
+
+  const [curX, setCurX] = useState(0);
+  const [curY, setCurY] = useState(0);
+  const [tgX, setTgX] = useState(0);
+  const [tgY, setTgY] = useState(0);
+  useEffect(() => {
+    document.body.style.setProperty(
+      '--gradient-background-start',
+      gradientBackgroundStart,
+    );
+    document.body.style.setProperty(
+      '--gradient-background-end',
+      gradientBackgroundEnd,
+    );
+    document.body.style.setProperty('--first-color', firstColor);
+    document.body.style.setProperty('--second-color', secondColor);
+    document.body.style.setProperty('--third-color', thirdColor);
+    document.body.style.setProperty('--fourth-color', fourthColor);
+    document.body.style.setProperty('--fifth-color', fifthColor);
+    document.body.style.setProperty('--pointer-color', pointerColor);
+    document.body.style.setProperty('--size', size);
+    document.body.style.setProperty('--blending-value', blendingValue);
+  }, []);
+
+  useEffect(() => {
+    function move() {
+      if (!interactiveRef.current) {
+        return;
+      }
+      setCurX(curX + (tgX - curX) / 20);
+      setCurY(curY + (tgY - curY) / 20);
+      interactiveRef.current.style.transform = `translate(${Math.round(
+        curX,
+      )}px, ${Math.round(curY)}px)`;
+    }
+
+    move();
+  }, [tgX, tgY]);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (interactiveRef.current) {
+      const rect = interactiveRef.current.getBoundingClientRect();
+      setTgX(event.clientX - rect.left);
+      setTgY(event.clientY - rect.top);
+    }
   };
 
-  const backgroundStyle = {
-    backgroundImage: `radial-gradient(circle farthest-side at 0% 100%, ${colors.color1}, transparent), radial-gradient(circle farthest-side at 100% 0, ${colors.color2}, transparent), radial-gradient(circle farthest-side at 100% 100%, ${colors.color3}, transparent), radial-gradient(circle farthest-side at 0 0, ${colors.color4}, #141316)`,
-    backgroundSize: animate ? backgroundSize : undefined, // Use the backgroundSize prop conditionally based on animate
-  };
+  const [isSafari, setIsSafari] = useState(false);
+  useEffect(() => {
+    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+  }, []);
 
   return (
-    <div className={`relative p-[4px] group ${containerClassName}`}>
-      <motion.div
-        variants={animate ? variants : undefined}
-        initial={animate ? 'initial' : undefined}
-        animate={animate ? 'animate' : undefined}
-        transition={
-          animate
-            ? {
-                duration: 5,
-                repeat: Infinity,
-                repeatType: 'reverse',
-              }
-            : undefined
-        }
-        style={backgroundStyle}
-        className={`absolute inset-0 rounded-3xl z-[1]  group-hover:opacity-100   opacity-0 blur-lg transition duration-500 will-change-transform`}
-      />
-      <motion.div
-        variants={animate ? variants : undefined}
-        initial={animate ? 'initial' : undefined}
-        animate={animate ? 'animate' : undefined}
-        transition={
-          animate
-            ? {
-                duration: 5,
-                repeat: Infinity,
-                repeatType: 'reverse',
-              }
-            : undefined
-        }
-        style={backgroundStyle}
-        className="absolute inset-0 rounded-3xl z-[1] will-change-transform"
-      />
+    <div
+      className={cn(
+        'relative overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]',
+        containerClassName,
+      )}
+    >
+      <svg className="hidden">
+        <defs>
+          <filter id="blurMe">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="10"
+              result="blur"
+            />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+              result="goo"
+            />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div className={cn('', className)}>{children}</div>
+      <div
+        className={cn(
+          'gradients-container h-full w-full blur-3xl',
+          isSafari ? 'blur-3xl' : '[filter:url(#blurMe)_blur(40px)]',
+        )}
+        style={{ zIndex: -1 }} // Ensure gradients are behind the ThreeModel
+      >
+        <div
+          className={cn(
+            `absolute [background:radial-gradient(circle_at_center,_rgba(var(--first-color),_0.9)_0,_rgba(var(--first-color),_0.9)_50%)_no-repeat]`,
+            `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
+            `[transform-origin:center_center]`,
+            `animate-first`,
+            `opacity-100`,
+          )}
+        ></div>
+        <div
+          className={cn(
+            `absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.9)_0,_rgba(var(--second-color),_0.9)_50%)_no-repeat]`,
+            `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
+            `[transform-origin:calc(50%-400px)]`,
+            `animate-second`,
+            `opacity-100`,
+          )}
+        ></div>
+        <div
+          className={cn(
+            `absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.9)_0,_rgba(var(--third-color),_0.9)_50%)_no-repeat]`,
+            `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
+            `[transform-origin:calc(50%+400px)]`,
+            `animate-third`,
+            `opacity-100`,
+          )}
+        ></div>
+        <div
+          className={cn(
+            `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.9)_0,_rgba(var(--fourth-color),_0.9)_50%)_no-repeat]`,
+            `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
+            `[transform-origin:calc(50%-200px)]`,
+            `animate-fourth`,
+            `opacity-100`,
+          )}
+        ></div>
+        <div
+          className={cn(
+            `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.9)_0,_rgba(var(--fifth-color),_0.9)_50%)_no-repeat]`,
+            `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
+            `[transform-origin:calc(50%-800px)_calc(50%+800px)]`,
+            `animate-fifth`,
+            `opacity-100`,
+          )}
+        ></div>
 
-      <div className={`relative z-10 ${className}`}>{children}</div>
+        {interactive && (
+          <div
+            ref={interactiveRef}
+            onMouseMove={handleMouseMove}
+            className={cn(
+              `absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.9)_0,_rgba(var(--pointer-color),_0.9)_50%)_no-repeat]`,
+              `[mix-blend-mode:var(--blending-value)] w-full h-full -top-1/2 -left-1/2`,
+              `opacity-70`,
+            )}
+          ></div>
+        )}
+      </div>
     </div>
   );
 };
