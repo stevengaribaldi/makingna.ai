@@ -1,3 +1,4 @@
+
 import NavBar from '@/components/navbar';
 import { Button } from '@/components/ui/button';
 
@@ -15,6 +16,8 @@ import {
 import { Check } from 'lucide-react';
 import clsx from 'clsx';
 import { onGetBlogPosts } from '@/landing';
+import { getMonthName } from '@/lib/utils';
+import parse from 'html-react-parser';
 
 export default async function Home() {
   const posts:
@@ -23,6 +26,7 @@ export default async function Home() {
         title: string;
         image: string;
         content: string;
+        createdAt: string;
       }[]
     | undefined = await onGetBlogPosts();
 
@@ -182,17 +186,27 @@ export default async function Home() {
         {posts &&
           posts.map((post) => (
             <Link href={`/blog/${post.id}`} key={post.id}>
-              <Card className="flex flex-col gap-2 rounded-xl overflow-hidden h-full hover:bg-gray-100">
+              <Card className="flex flex-col gap-2 rounded-xl overflow-hidden h-full bg-white hover:bg-gray-100">
                 <div className="relative w-full aspect-video">
                   <Image
-                    src={`${process.env.CLOUDWAYS_UPLOADS_URL}/${post.image}`}
-                    layout="fill"
-                    objectFit="cover"
+                    src={post.image}
+                    // src={`${process.env.CLOUDWAYS_UPLOADS_URL}${post.image}`}
+                    fill
+                    style={{ objectFit: 'cover' }}
                     alt={post.title}
                   />
                 </div>
                 <div>
                   <CardDescription></CardDescription>
+                </div>
+                <div className="py-5 px-10 flex flex-col gap-5">
+                  <CardDescription>
+                    {post.createdAt}
+                    {/* {getMonthName(post.createdAt.getMonth())}{' '}
+                    {post.createdAt.getDate()} {post.createdAt.getFullYear()} */}
+                  </CardDescription>
+                  <CardTitle>{post.title}</CardTitle>
+                  {parse(post.content.slice(4, 100))}...
                 </div>
               </Card>
             </Link>
