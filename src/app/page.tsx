@@ -77,7 +77,7 @@ export default async function Home() {
             {' '}
             Start For Free
           </Button>
-          <div className="flex flex-col overflow-hidden">
+          <div className="flex flex-col -mt-20 overflow-hidden">
             <ContainerScroll
               titleComponent={
                 <>

@@ -80,10 +80,8 @@ export default function ThreeModel() {
   return (
     <Canvas>
       <Suspense fallback={null}>
-        {/* Add pink lighting */}
         <ambientLight intensity={5} />
         <pointLight position={[20, 20, 20]} color="white" intensity={50} />{' '}
-        {/* Increase point light intensity */}
         <pointLight
           position={[-20, -20, -20]}
           color="white"
