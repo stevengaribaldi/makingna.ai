@@ -1,4 +1,3 @@
-
 import NavBar from '@/components/navbar';
 import { Button } from '@/components/ui/button';
 
@@ -15,8 +14,8 @@ import {
 } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import clsx from 'clsx';
-import { onGetBlogPosts } from '@/landing';
-import { getMonthName } from '@/lib/utils';
+import { onGetBlogPosts } from '@/actions/landing';
+// import { getMonthName } from '@/lib/utils';
 import parse from 'html-react-parser';
 
 export default async function Home() {
@@ -55,10 +54,17 @@ export default async function Home() {
                   className="max-w-lg object-contain"
                 />
                 <span className="hiddened">xMAKINGNA</span>
+                {/* <iframe
+                  src="https://www.yehfedra.com/"
+                  allowFullScreen
+                  className="iframe"
+                ></iframe> */}
               </div>
               <iframe></iframe>
             </div>
-            <div className="top">
+            <div className="topbg"> </div>
+
+            <div className="top ">
               <div className="camera">
                 <div className="int"></div>
               </div>
@@ -182,10 +188,15 @@ export default async function Home() {
           Explore our insights on AI, technology, and business optimization.
         </p>
       </section>
-      <section className="md:grid-cols-3 grid-cols-1 grid gap-5 container mt-8">
+      <section className="md:grid-cols-3 bg-cream grid-cols-1 grid gap-5 container mt-8">
         {posts &&
           posts.map((post) => (
-            <Link href={`/blog/${post.id}`} key={post.id}>
+            <Link
+              href={post.id}
+              key={post.id}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Card className="flex flex-col gap-2 rounded-xl overflow-hidden h-full bg-white hover:bg-gray-100">
                 <div className="relative w-full aspect-video">
                   <Image
@@ -199,14 +210,14 @@ export default async function Home() {
                 <div>
                   <CardDescription></CardDescription>
                 </div>
-                <div className="py-5 px-10 flex flex-col gap-5">
+                <div className="py-0 px-3 flex flex-col gap-5">
                   <CardDescription>
                     {post.createdAt}
                     {/* {getMonthName(post.createdAt.getMonth())}{' '}
                     {post.createdAt.getDate()} {post.createdAt.getFullYear()} */}
                   </CardDescription>
                   <CardTitle>{post.title}</CardTitle>
-                  {parse(post.content.slice(4, 100))}...
+                  {parse(post.content.slice(0, 90))}...
                 </div>
               </Card>
             </Link>

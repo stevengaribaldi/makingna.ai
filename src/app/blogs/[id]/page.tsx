@@ -1,4 +1,4 @@
-import { onGetBlogPost } from '@/landing';
+import { onGetBlogPost } from '@/actions/landing';
 import React from 'react';
 import { CardDescription } from '@/components/ui/card';
 import parse from 'html-react-parser';

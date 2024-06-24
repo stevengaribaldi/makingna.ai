@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 interface Article {
   url: string;
   title: string;
@@ -50,15 +50,17 @@ export const onGetBlogPosts = async () => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 export const onGetBlogPost = async (id: any) => {
   try {
-    const apiKey = process.env.NEWS_API_KEY
+    const apiKey = process.env.NEWS_API_KEY;
     const apiUrl = `https://newsapi.org/v2/everything?q=ai&sources=techcrunch&apiKey=${apiKey}`;
-    if (!apiKey) return
-    const response = await axios.get(apiUrl)
+    if (!apiKey) return;
+    const response = await axios.get(apiUrl);
 
-    const article = response.data.articles.find((article: { url: any; }) => article.url === id)
+    const article = response.data.articles.find(
+      (article: { url: any }) => article.url === id,
+    );
     if (article) {
       return {
         id: article.url,
@@ -73,9 +75,9 @@ export const onGetBlogPost = async (id: any) => {
       };
     }
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-}
+};
 
 // 'use server'
 // import axios from 'axios'
@@ -151,4 +153,3 @@ export const onGetBlogPost = async (id: any) => {
 //     console.log(error)
 //   }
 // }
-
