@@ -45,20 +45,13 @@ export default async function Home() {
             <div className="btn3"></div>
             <div className="btn4"></div>
             <div className="carded-int">
-              <div className="hello">
-                <Image
-                  src="/images/xMakingna_individual_letter_gradient.png"
-                  width={120}
-                  height={60}
-                  alt="Logo"
-                  className="max-w-lg object-contain"
-                />
-                <span className="hiddened">xMAKINGNA</span>
-                {/* <iframe
+              <div className="iframe-container">
+                <iframe
                   src="https://www.yehfedra.com/"
                   allowFullScreen
                   className="iframe"
-                ></iframe> */}
+                ></iframe>
+                <div className="iframe-overlay"></div>
               </div>
               <iframe></iframe>
             </div>

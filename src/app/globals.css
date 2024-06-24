@@ -324,16 +324,34 @@ input:-webkit-autofill:active {
 .carded:hover .carded-int {
   background-position: 100% 100%;
 }
+.iframe-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(0 round 25px); /* Adjust the border-radius for clipping */
+  overflow: hidden; /* Hide overflow within the clipping region */
+}
+
 .iframe {
-  width: 150%; /* Extend iframe width */
-  height: 150%; /* Extend iframe height */
-  border: none; /* Remove default iframe border */
-  transform: scale(0.67); /* Scale down to fit the container (150% / 0.67 ≈ 100%) */
-  transform-origin: top left; /* Set transform origin to the top left corner */
-  position: absolute; /* Ensure positioning stays within container */
-  top: 0;
+  width: 260%;
+  height: 250%;
+  border: none;
+  transform: scale(0.4);
+  transform-origin: top left;
+  position: absolute;
+  top: 10.5px;
   left: 0;
 }
+.iframe-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Keep it transparent to show the iframe */
+  z-index: 1; /* Ensure it sits above the iframe */
+}
+
 .topbg {
   position: absolute;
   top: 4px;
@@ -345,7 +363,7 @@ input:-webkit-autofill:active {
   border-left: 1px solid #000;
   border-right: 1px solid #000000;
 
-  background-color: rgb(187, 19, 209);
+  background-color: rgb(68,52,68);
   border-top-left-radius: 150px 55px;
   border-bottom-left-radius: 100px 0px;
   border-top-right-radius: 150px 55px;
