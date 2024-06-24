@@ -90,16 +90,14 @@ export default async function Home() {
                 </>
               }
             >
-              <div
-                className="mx-auto rounded-2xl object-cover h-full
-                object-left-top  w-max"
-              >
-                <iframe
-                  src="https://www.yehfedra.com/"
-                  allowFullScreen
-                
-                ></iframe>
-              </div>
+              <iframe
+                src="https://www.yehfedra.com/"
+                title="iframe"
+                scrolling="no"
+                className="w-full h-full rounded-2xl object-cover"
+                style={{ height: '100%', width: '100%' }}
+                draggable={false}
+              />
             </ContainerScroll>
           </div>
         </div>
