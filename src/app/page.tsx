@@ -1,5 +1,6 @@
 import NavBar from '@/components/navbar';
 import { Button } from '@/components/ui/button';
+import { ContainerScroll } from '../components/ui/container-scroll-animation';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -76,13 +77,31 @@ export default async function Home() {
             {' '}
             Start For Free
           </Button>
-          <Image
-            src="/images/xMakingna_individual_letter_gradient.png"
-            width={50}
-            height={100}
-            alt="Logo"
-            className="max-w-lg object-contain"
-          />
+          <div className="flex flex-col overflow-hidden">
+            <ContainerScroll
+              titleComponent={
+                <>
+                  <h1 className="text-4xl font-semibold text-black dark:text-white">
+                    Unleash the power of xMAKINGNA <br />
+                    <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                      Intelligence that captures sell leads
+                    </span>
+                  </h1>
+                </>
+              }
+            >
+              <div
+                className="mx-auto rounded-2xl object-cover h-full
+                object-left-top  w-max"
+              >
+                <iframe
+                  src="https://www.yehfedra.com/"
+                  allowFullScreen
+                
+                ></iframe>
+              </div>
+            </ContainerScroll>
+          </div>
         </div>
       </section>
       <section className="flex justify-center items-center flex-col gap-4 mt-10">
@@ -147,7 +166,7 @@ export default async function Home() {
                   <div key={feature} className="flex gap-2">
                     <Check
                       className={clsx('text-tiko  font-extrabold', {
-                        'text-cyan-500  size-7 )] rounded-sm ':
+                        'text-cyan-5t00  size-7 )] rounded-sm ':
                           card.title === 'Pro',
                       })}
                     />
