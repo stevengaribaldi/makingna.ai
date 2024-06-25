@@ -1,4 +1,5 @@
 'use cliet';
+import { set } from 'date-fns';
 import React, { createContext, useContext, useState } from 'react';
 
 type ChatInitialValueProps = {
@@ -10,7 +11,7 @@ type ChatInitialValueProps = {
     message: string;
     id: string;
     role: 'assistant' | 'user' | null;
-    createAt: Date;
+    createdAt: Date;
     seen: boolean;
   }[];
   setChats: React.Dispatch<
@@ -23,11 +24,44 @@ type ChatInitialValueProps = {
         seen: boolean;
       }[]
     >
-    >;
-    loading: boolean
+  >;
+  loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+const ChatInitialValues: ChatInitialValueProps = {
+  chatRoom: undefined,
+  setChatRoom: () => undefined,
+  chats: [],
+  setChats: () => undefined,
+  loading: false,
+  setLoading: () => undefined,
+  realtime: false,
+  setRealtime: () => undefined,
+};
 
-// const ChatInitialValue: ChatInitialValueProps = {
-// };
+const chatContext = createContext(ChatInitialValues);
+const { Provider } = chatContext;
+export const ChatProvider = ({ children }: { children: React.ReactNode }) => {
+  const [chats, setChats] = useState(ChatInitialValues.chats);
+  const [loading, setLoading] = useState(ChatInitialValues.loading);
+  const [chatRoom, setChatRoom] = useState(ChatInitialValues.chatRoom);
+  const [realtime, setRealtime] = useState(ChatInitialValues.realtime);
+
+  const values = {
+    chats,
+    setChats,
+    loading,
+    setLoading,
+    chatRoom,
+    setChatRoom,
+    realtime,
+    setRealtime,
+  };
+
+  return <Provider value={values}>{children}</Provider>;
+};
+export const useChatContext = () => {
+  const state = useContext(chatContext);
+  return state;
+};
