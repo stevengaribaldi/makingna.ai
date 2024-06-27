@@ -4,11 +4,13 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 import MaxMenu from './maximized-menu';
 import { MinMenu } from './minimized-menu';
+
 type Props = {
   domains:
     | {
         id: string;
         name: string;
+        icon: string;
       }[]
     | null
     | undefined;
@@ -16,10 +18,11 @@ type Props = {
 
 const SideBar = ({ domains }: Props) => {
   const { expand, onExpand, page, onSignOut } = useSideBar();
+
   return (
     <div
       className={cn(
-        'bg-cream dark:bg-slate-950 h-full w-[60px] fill-mode-forwards fixed md:relative',
+        'bg-cream dark:bg-neutral-950 h-full w-[60px] fill-mode-forwards fixed md:relative',
         expand == undefined && '',
         expand == true
           ? 'animate-open-sidebar'

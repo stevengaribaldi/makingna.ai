@@ -4,7 +4,6 @@ import RegistrationFormstep from '@/components/forms/sing-up/registrationFormste
 import ButtonHandler from '@/components/forms/sing-up/button-handlers';
 import HighlightBar from '@/components/forms/sing-up/highlight-bar';
 
-
 type Props = {};
 
 const SignUp = (props: Props) => {

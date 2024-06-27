@@ -1,7 +1,6 @@
 'use server';
 import { client } from '@/lib/prisma';
 import { currentUser, redirectToSignIn } from '@clerk/nextjs';
-import { redirect } from 'next/dist/server/api-utils';
 import { onGetAllAccountDomains } from '../setttings';
 
 export const onCompleteUserRegistration = async (
@@ -10,7 +9,7 @@ export const onCompleteUserRegistration = async (
   type: string,
 ) => {
   try {
-    const registeredSuccess = await client.user.create({
+    const registered = await client.user.create({
       data: {
         fullname,
         clerkId,
@@ -25,11 +24,12 @@ export const onCompleteUserRegistration = async (
         type: true,
       },
     });
-    if (registeredSuccess) {
-      return { status: 200, user: registeredSuccess };
+
+    if (registered) {
+      return { status: 200, user: registered };
     }
-  } catch (error: any) {
-    console.log(error);
+  } catch (error) {
+    return { status: 400 };
   }
 };
 
@@ -50,7 +50,6 @@ export const onLoginUser = async () => {
       });
       if (authenticated) {
         const domains = await onGetAllAccountDomains();
-
         return { status: 200, user: authenticated, domain: domains?.domains };
       }
     } catch (error) {
@@ -58,5 +57,3 @@ export const onLoginUser = async () => {
     }
   }
 };
-
-

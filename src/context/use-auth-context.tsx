@@ -12,9 +12,10 @@ const InitialValues: InitialValuesProps = {
 };
 
 const authContext = React.createContext(InitialValues);
+
 const { Provider } = authContext;
 
-export const AuthContextPorvider = ({
+export const AuthContextProvider = ({
   children,
 }: {
   children: React.ReactNode;

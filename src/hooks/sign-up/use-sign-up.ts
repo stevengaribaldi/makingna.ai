@@ -4,12 +4,12 @@ import {
   UserRegistrationProps,
   UserRegistrationSchema,
 } from '@/schemas/auth.schema';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useSignUp } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { onCompleteUserRegistration } from '@/actions/auth/index';
+import { onCompleteUserRegistration } from '@/actions/auth';
 
 export const useSignUpForm = () => {
   const { toast } = useToast();
@@ -19,7 +19,7 @@ export const useSignUpForm = () => {
   const methods = useForm<UserRegistrationProps>({
     resolver: zodResolver(UserRegistrationSchema),
     defaultValues: {
-      type: 'ower',
+      type: 'owner',
     },
     mode: 'onChange',
   });
@@ -30,18 +30,20 @@ export const useSignUpForm = () => {
     onNext: React.Dispatch<React.SetStateAction<number>>,
   ) => {
     if (!isLoaded) return;
+
     try {
       await signUp.create({
         emailAddress: email,
         password: password,
       });
+
       await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
+
       onNext((prev) => prev + 1);
     } catch (error: any) {
-      const errorMessage = error.message?.[0]?.longMessage || 'An unexpected error occurred';
       toast({
         title: 'Error',
-        description: errorMessage,
+        description: error.errors[0].longMessage,
       });
     }
   };
@@ -57,35 +59,38 @@ export const useSignUpForm = () => {
         });
 
         if (completeSignUp.status !== 'complete') {
-          return { message: 'Something went wrong' };
+          return { message: 'Something went wrong!' };
         }
 
         if (completeSignUp.status == 'complete') {
           if (!signUp.createdUserId) return;
+
           const registered = await onCompleteUserRegistration(
             values.fullname,
             signUp.createdUserId,
             values.type,
           );
-          if (registered?.status === 200 && registered.user) {
+
+          if (registered?.status == 200 && registered.user) {
             await setActive({
               session: completeSignUp.createdSessionId,
             });
+
             setLoading(false);
             router.push('/dashboard');
           }
+
           if (registered?.status == 400) {
             toast({
               title: 'Error',
-              description: 'Something went wrong, please try',
+              description: 'Something went wrong!',
             });
           }
         }
       } catch (error: any) {
-        const errorMessage = error.error?.[0]?.longMessage || 'An unexpected error occurred';
         toast({
           title: 'Error',
-          description: errorMessage,
+          description: error.errors[0].longMessage,
         });
       }
     },

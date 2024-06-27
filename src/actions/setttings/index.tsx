@@ -57,7 +57,7 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
                 icon,
                 chatBot: {
                   create: {
-                    welcomeMessage: 'Hey there, have  a question? Text us here',
+                    welcomeMessage: 'Have a question? Just text us',
                   },
                 },
               },
@@ -72,7 +72,7 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
       return {
         status: 400,
         message:
-          "You've reached the maximum number of domains, upgrade your plan",
+          "You've reached the maximum number of domains, upgrade your plan or text us for more info",
       };
     }
     return {
