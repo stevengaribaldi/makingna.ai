@@ -2,7 +2,6 @@ import React from 'react';
 import { currentUser } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
-import { Bungee_Hairline } from 'next/font/google';
 import dynamic from 'next/dynamic';
 import Logo from '@/components/ui/logo';
 
@@ -11,10 +10,7 @@ const ThreeModel = dynamic(() => import('../../components/ThreeModel'), {
   loading: () => <p></p>,
 });
 
-const bungeeHairline = Bungee_Hairline({
-  subsets: ['latin'],
-  weight: '400',
-});
+
 type Props = {
   children: React.ReactNode;
 };

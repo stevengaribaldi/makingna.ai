@@ -30,7 +30,7 @@ export const pricingCards = [
     title: 'Pro',
     description:
       'Enhanced features for competitive and rapidly growing businesses',
-    price: '$59',
+    price: '$69',
     topDescription: '',
 
     duration: 'per month',
@@ -48,12 +48,12 @@ export const pricingCards = [
     title: 'Ultimate',
     description:
       'Optimized for thriving, well established, and market-leading businesses',
-    price: '$87',
+    price: '$107',
     topDescription: 'starts at',
     duration: 'per month',
     highlight: 'Premium Features',
     features: [
-      'Unlimited domains',
+      '19 domains',
       '1000+ contacts',
       '1000+ emails per month',
       'Custom branding',
