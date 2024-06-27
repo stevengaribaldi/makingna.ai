@@ -2,7 +2,7 @@ import Image from 'next/image';
 import * as React from 'react';
 import { Button } from '../ui/button';
 import Link from 'next/link';
-import { Bungee_Hairline } from 'next/font/google'; // Import the font
+import { Bungee_Hairline } from 'next/font/google';
 const bungeeHairline = Bungee_Hairline({
   subsets: ['latin'],
   weight: '400',

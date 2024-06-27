@@ -1,4 +1,4 @@
-'use cliet';
+'use client';
 import { set } from 'date-fns';
 import React, { createContext, useContext, useState } from 'react';
 
