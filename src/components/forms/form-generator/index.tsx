@@ -42,7 +42,7 @@ const FormGenerator = ({
 
 }: Props) => {
   const { watch } = useFormContext();
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused,] = useState(false);
   const value = watch(name, defaultValue);
 
   const handleFocus = () => setIsFocused(true);
