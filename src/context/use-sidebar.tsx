@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useToast } from '@/components/ui/use-toast';
 import { useChatContext } from '@/context/user-chat-context';
-import { onGetConverstionMode, onToggleRealtime } from '@/actions/conversation';
+import { onToggleRealtime } from '@/actions/conversation';
 import { useClerk } from '@clerk/nextjs';
 import { on } from 'events';
 
@@ -33,20 +33,20 @@ const useSideBar = () => {
     } catch (err) {}
   };
 
-  const onGetCurrentMode = async () => {
-    setloading(true);
-    const mode = await onGetConverstionMode(chatRoom!);
-    if (mode) {
-      setRealtime(mode.mode?.live);
-      setloading(false);
-    }
-  };
+  // const onGetCurrentMode = async () => {
+  //   setloading(true);
+  //   const mode = await onGetConverstionMode(chatRoom!);
+  //   if (mode) {
+  //     setRealtime(mode.mode?.live);
+  //     setloading(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    if (chatRoom) {
-      onGetCurrentMode();
-    }
-  }, [chatRoom]);
+  // useEffect(() => {
+  //   if (chatRoom) {
+  //     onGetCurrentMode();
+  //   }
+  // }, [chatRoom]);
 
   const page = pathname.split('/').pop();
   const { signOut } = useClerk();

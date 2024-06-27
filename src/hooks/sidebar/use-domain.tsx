@@ -1,11 +1,12 @@
-import { AddDomainShema } from '@/schemas/settings.schema';
+import { onIntegrateDomain } from '@/actions/setttings';
+import { useToast } from '@/components/ui/use-toast';
+import { AddDomainSchema } from '@/schemas/settings.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { UploadClient } from '@uploadcare/upload-client';
-import { FieldValues, useForm } from 'react-hook-form';
 import { usePathname, useRouter } from 'next/navigation';
-import { useToast } from '@/components/ui/use-toast';
-import { use, useEffect, useState } from 'react';
-import { onIntegrateDomain } from '@/actions/setttings';
+
+import { useEffect, useState } from 'react';
+import { FieldValues, useForm } from 'react-hook-form';
 
 const upload = new UploadClient({
   publicKey: process.env.NEXT_PUBLIC_UPLOAD_CARE_PUBLIC_KEY as string,
@@ -18,7 +19,7 @@ export const useDomain = () => {
     formState: { errors },
     reset,
   } = useForm<FieldValues>({
-    resolver: zodResolver(AddDomainShema),
+    resolver: zodResolver(AddDomainSchema),
   });
 
   const pathname = usePathname();
@@ -39,12 +40,13 @@ export const useDomain = () => {
       reset();
       setLoading(false);
       toast({
-        title: domain.status == 200 ? 'success' : 'error',
+        title: domain.status == 200 ? 'Success' : 'Error',
         description: domain.message,
       });
       router.refresh();
     }
   });
+
   return {
     register,
     onAddDomain,

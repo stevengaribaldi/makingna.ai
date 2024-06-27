@@ -29,28 +29,40 @@ export const useSignUpForm = () => {
     password: string,
     onNext: React.Dispatch<React.SetStateAction<number>>,
   ) => {
-    if (!isLoaded) return;
+    if (!isLoaded) {
+      toast({
+        title: 'Error',
+        description: 'Sign-up service is not loaded. Please try again later.',
+      });
+      return;
+    }
 
     try {
       await signUp.create({
         emailAddress: email,
         password: password,
       });
-
+      console.log(signUp.status);
       await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
 
       onNext((prev) => prev + 1);
     } catch (error: any) {
       toast({
         title: 'Error',
-        description: error.errors[0].longMessage,
+        description: error.errors?.[0]?.longMessage || error.message,
       });
     }
   };
 
   const onHandleSubmit = methods.handleSubmit(
     async (values: UserRegistrationProps) => {
-      if (!isLoaded) return;
+      if (!isLoaded) {
+        toast({
+          title: 'Error',
+          description: 'Sign-up service is not loaded. Please try again later.',
+        });
+        return;
+      }
 
       try {
         setLoading(true);
@@ -59,11 +71,25 @@ export const useSignUpForm = () => {
         });
 
         if (completeSignUp.status !== 'complete') {
-          return { message: 'Something went wrong!' };
+          toast({
+            title: 'Error',
+            description: 'Verification failed. Please try again.',
+          });
+          setLoading(false);
+          return;
         }
 
-        if (completeSignUp.status == 'complete') {
-          if (!signUp.createdUserId) return;
+        if (completeSignUp.status === 'complete') {
+          if (!signUp.createdUserId) {
+            toast({
+              title: 'Error',
+              description: 'User ID was not created. Please try again.',
+            });
+            setLoading(false);
+            router.push('/dashboard');
+
+            return;
+          }
 
           const registered = await onCompleteUserRegistration(
             values.fullname,
@@ -71,30 +97,37 @@ export const useSignUpForm = () => {
             values.type,
           );
 
-          if (registered?.status == 200 && registered.user) {
+          if (registered?.status === 200 && registered.user) {
             await setActive({
               session: completeSignUp.createdSessionId,
             });
 
             setLoading(false);
             router.push('/dashboard');
-          }
-
-          if (registered?.status == 400) {
+          } else if (registered?.status === 400) {
             toast({
               title: 'Error',
-              description: 'Something went wrong!',
+              description: 'Registration failed. Please try again.',
             });
+            setLoading(false);
+          } else {
+            toast({
+              title: 'Error',
+              description: 'An unknown error occurred during registration.',
+            });
+            setLoading(false);
           }
         }
       } catch (error: any) {
+        setLoading(false);
         toast({
           title: 'Error',
-          description: error.errors[0].longMessage,
+          description: error.errors?.[0]?.longMessage || error.message,
         });
       }
     },
   );
+
   return {
     methods,
     onHandleSubmit,

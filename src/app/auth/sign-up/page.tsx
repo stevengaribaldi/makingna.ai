@@ -1,8 +1,8 @@
 import React from 'react';
-import SignUpFormProvider from '@/components/forms/sing-up/form-providers';
-import RegistrationFormstep from '@/components/forms/sing-up/registrationFormstep';
-import ButtonHandler from '@/components/forms/sing-up/button-handlers';
-import HighlightBar from '@/components/forms/sing-up/highlight-bar';
+import SignUpFormProvider from '@/components/forms/sign-up/form-providers';
+import ButtonHandler from '@/components/forms/sign-up/button-handlers';
+import HighlightBar from '@/components/forms/sign-up/highlight-bar';
+import RegistrationFormStep from '@/components/forms/sign-up/registrationFormstep';
 
 type Props = {};
 
@@ -12,7 +12,7 @@ const SignUp = (props: Props) => {
       <div className="flex flex-col h-full gap-3">
         <SignUpFormProvider>
           <div className="flex flex-col gap-3">
-            <RegistrationFormstep />
+            <RegistrationFormStep />
             <ButtonHandler />
           </div>
           <HighlightBar />

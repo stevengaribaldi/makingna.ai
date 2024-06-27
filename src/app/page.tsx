@@ -173,7 +173,7 @@ export default async function Home() {
                 ))}
               </div>
               <div>
-                {card.title === 'Free' ? (
+                {card.title === 'FREE' ? (
                   <Button className="p-2 px-20  w-full gap-4 text-center hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-brownish text-lg font-medium transition-opacity duration-500 hover:bg-iridium  text-gray-200 hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40">
                     <Link href={`/dashbord?plan=${card.title}`}>
                       Get Started
