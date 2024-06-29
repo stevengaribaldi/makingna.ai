@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import DomainMenu from './domain-menu';
 import MenuItem from './menu-item';
+import Logo from '@/components/ui/logo';
 
 type Props = {
   onExpand(): void;
@@ -23,18 +24,7 @@ const MaxMenu = ({ current, domains, onExpand, onSignOut }: Props) => {
   return (
     <div className="py-3 px-4 flex flex-col h-full">
       <div className="flex justify-between items-center">
-        <Image
-          src="/images/logo.png"
-          alt="LOGO"
-          sizes="100vw"
-          className="animate-fade-in opacity-0 delay-300 fill-mode-forwards"
-          style={{
-            width: '50%',
-            height: 'auto',
-          }}
-          width={0}
-          height={0}
-        />
+        <Logo moveRight="130px" moveUp="15px" moveDown="1px" moveLeft="5px" />
         <Menu
           className="cursor-pointer animate-fade-in opacity-0 delay-300 fill-mode-forwards"
           onClick={onExpand}

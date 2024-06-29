@@ -13,18 +13,7 @@ function NavBar() {
     <div className="flex gap-5 justify-between items-center px-7 py-1 font-bold border-b border-solid border-zinc-100 leading-[154.5%] max-md:flex-wrap max-md:px-5">
       <div className=" flex gap-1 -ml-5 -mr-10 justify-center self-stretch my-auto text-2xl tracking-tighter text-neutral-700">
         <span className="bg-cream md:mr-[100px] lg:ml-14 flex justify-center self-center px-4  -py-1  mt-1 text-herred rounded-sm ">
-          {/* <Image
-            // loading="lazy"
-            src="/images/bluemakingna.png"
-            alt="LOGO"
-            sizes="20vw"
-            style={{
-              width: '50px',
-              height: 'auto',
-            }}
-            width={0}
-            height={0}
-          /> */}
+  
           <div className="relative mt-0 mb-2">
             <span
               className={`absolute top-0 left-[0.3px] ${bungeeHairline.className} text-midnightblue`}

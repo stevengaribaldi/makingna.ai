@@ -211,7 +211,7 @@ export default async function Home() {
                 <div className="relative w-full aspect-video">
                   <Image
                     src={post.image}
-                    // src={`${process.env.CLOUDWAYS_UPLOADS_URL}${post.image}`}
+                    loading="lazy"
                     fill
                     style={{ objectFit: 'cover' }}
                     alt={post.title}

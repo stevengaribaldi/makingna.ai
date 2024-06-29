@@ -6,17 +6,36 @@ const bungeeHairline = Bungee_Hairline({
   weight: '400',
 });
 
-interface HighlightTextProps {
+interface LogoProps {
+  moveRight?: string;
+  moveUp?: string;
+  moveDown?: string;
+  moveLeft?: string;
   size?: string;
   position?: string;
   additionalClasses?: string;
 }
 
-const Logo: React.FC<HighlightTextProps> = ({
+const Logo: React.FC<LogoProps> = ({
+  moveRight,
+  moveUp,
+  moveDown,
+  moveLeft,
 
 }) => {
+  const calculatePosition = () => {
+    const right = moveRight ? `translateX(${moveRight})` : '';
+    const up = moveUp ? `translateY(-${moveUp})` : '';
+    const down = moveDown ? `translateY(${moveDown})` : '';
+    const left = moveLeft ? `translateX(-${moveLeft})` : '';
+
+    return `${right} ${up} ${down} ${left}`;
+  };
   return (
-    <div className=" flex gap-1 -ml-5 -mr-10 justify-center self-stretch my-auto text-2xl tracking-tighter text-neutral-700">
+    <div
+      className=" flex gap-1 -ml-5 -mr-10 justify-center self-stretch my-auto text-2xl tracking-tighter text-neutral-700"
+      style={{ transform: calculatePosition() }}
+    >
       <span className="bg-cream -ml-[150px]  md:-ml-[200px] lg:ml-225 flex justify-center self-center px-4  -py-1  mt-1 text-herred rounded-sm ">
         <div className="relative mt-2 mb-2">
           <span
