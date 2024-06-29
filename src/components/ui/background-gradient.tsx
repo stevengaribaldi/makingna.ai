@@ -117,7 +117,7 @@ export const BackgroundGradientAnimation = ({
           'gradients-container h-full w-full blur-3xl',
           isSafari ? 'blur-3xl' : '[filter:url(#blurMe)_blur(40px)]',
         )}
-        style={{ zIndex: -1 }} // Ensure gradients are behind the ThreeModel
+        style={{ zIndex: -1 }} 
       >
         <div
           className={cn(

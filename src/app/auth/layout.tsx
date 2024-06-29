@@ -33,8 +33,8 @@ const LayoutProps = async ({ children }: Props) => {
           Hi, I’m your AI powered sales assistant, xMakingna!
         </h2>
         <p className="text-pinkher mb-10 md:text-sm z-10">
-          xMakingna is capable of capturing lead information without a form...{' '}
-          <br />A promise written on water
+          Our xMakingna intelligence is capable of capturing lead information
+          without a form... <br />A promise written on water
         </p>
         <div className="absolute  flex inset-0 flex-1">
           <ThreeModel />
