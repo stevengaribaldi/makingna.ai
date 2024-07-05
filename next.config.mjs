@@ -23,8 +23,13 @@ const nextConfig = {
         protocol: 'https',
         hostname: 's.yimg.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'media.zenfs.com',
+      },
     ],
   },
 };
 
 export default nextConfig;
+
