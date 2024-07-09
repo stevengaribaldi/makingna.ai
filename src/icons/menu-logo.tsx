@@ -14,7 +14,7 @@ export const MenuLogo = ({ onClick }: MenuLogoProps) => {
   return (
     <div
       onClick={onClick}
-      className="relative   cursor-default flex justify-center items-center"
+      className="relative  cursor-default flex justify-center items-center"
       style={{ width: '30px', height: '30px' }}
     >
       <div className="relative">
@@ -24,129 +24,142 @@ export const MenuLogo = ({ onClick }: MenuLogoProps) => {
               className={`absolute top-0 left-[0.3px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>
+              <span className="-ml-[47px]" style={{ fontSize: '4em' }}></span>
             </span>{' '}
             <span
               className={`absolute top-0 -left-[0.3px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-0 left-[0.2px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>{' '}
             <span
               className={`absolute top-0 -left-[0.2px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-0 left-[0.1px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-0 -left-[0.1px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-0 left-[0.4px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-0  -left-[0.4px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-0  left-[0.5px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>{' '}
             <span
               className={`absolute top-0 -left-[0.5px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-0  left-[0.6px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>{' '}
             <span
               className={`absolute top-0  left-[0.6px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-0  left-[0.7px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>{' '}
             <span
               className={`absolute top-0  left-[0.8px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>{' '}
             <span
               className={`absolute top-0  -left-[0.8px] ${bungeeHairline.className} text-herred`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-0  left-[0.7px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span className="-ml-[47.5px]" style={{ fontSize: '4em' }}>
-                m
-              </span>{' '}
+              <span
+                className="-ml-[47px]"
+                style={{ fontSize: '4em' }}
+              ></span>{' '}
             </span>
             <span
               className={`absolute top-[10.1px] left-0 ${bungeeHairline.className} text-midnightblue`}

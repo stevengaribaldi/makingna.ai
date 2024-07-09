@@ -24,7 +24,7 @@ const MaxMenu = ({ current, domains, onExpand, onSignOut }: Props) => {
   return (
     <div className="py-3 px-4 md:shadow-[-10px_-10px_30px_1px_rgba(245,87,113,0.25),_10px_10px_30px_4px_rgba(191,175,178,0.3)] flex flex-col h-full">
       <div className="flex justify-between items-center">
-        <div onClick={onExpand} className='-ml-5 md:-ml-0'>
+        <div onClick={onExpand} className="-ml-5 md:-ml-0">
           <Logo moveRight="100px" moveUp="15px" moveDown="1px" moveLeft="5px" />
         </div>
         <Menu
