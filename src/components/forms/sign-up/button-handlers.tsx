@@ -61,7 +61,7 @@ const ButtonHandler = (props: Props) => {
 
   if (currentStep === 2) {
     const passwordsMatch =
-      getValues('password') === getValues('confirmPassword'); 
+      getValues('password') === getValues('confirmPassword');
 
     return (
       <div className="flex w-full pt-12 -mt-7 flex-col items-center gap-3">

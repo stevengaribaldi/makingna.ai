@@ -22,17 +22,17 @@ type Props = {
 
 const MaxMenu = ({ current, domains, onExpand, onSignOut }: Props) => {
   return (
-    <div className="py-3 px-4 md:shadow-[-10px_-10px_30px_1px_rgba(245,87,113,0.25),_10px_10px_30px_4px_rgba(191,175,178,0.3)] flex flex-col h-full">
+    <div className="py-3 px-4   flex flex-col h-full">
       <div className="flex justify-between items-center">
         <div onClick={onExpand} className="-ml-5 md:-ml-0">
           <Logo moveRight="100px" moveUp="15px" moveDown="1px" moveLeft="5px" />
         </div>
         <Menu
-          className="cursor-pointer mr-10 md:mr-0 -mt-6 animate-fade-in opacity-0 delay-300 fill-mode-forwards"
+          className="cursor-pointer sm:mr-10 md:mr-0 -mt-6 animate-fade-in opacity-0 delay-300 fill-mode-forwards"
           onClick={onExpand}
         />
       </div>
-      <div className="animate-fade-in opacity-0 delay-300 fill-mode-forwards flex flex-col justify-between h-full pt-10">
+      <div className="animate-fade-in opacity-0 delay-300 fill-mode-forwards flex flex-col justify-between h-full ">
         <div className="flex flex-col">
           <p className="text-xs text-gray-500 mb-3">MENU</p>
           {SIDE_BAR_MENU.map((menu, key) => (

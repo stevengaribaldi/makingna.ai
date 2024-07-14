@@ -7,7 +7,7 @@ type SectionProps = {
 
 const Section = ({ label, message }: SectionProps) => {
   return (
-    <div>
+    <div className="text-slate-950">
       <p className="text-sm font-medium">{label}</p>
       <p className="text-sm font-light">{message}</p>
     </div>

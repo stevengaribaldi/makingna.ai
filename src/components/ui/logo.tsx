@@ -32,7 +32,7 @@ const Logo: React.FC<LogoProps> = ({
   };
   return (
     <div
-      className=" flex gap-1 cursor-default -ml-5 -mr-10 justify-center self-stretch my-auto text-2xl tracking-tighter text-neutral-700"
+      className=" cursor-pointer flex gap-1  -ml-5 -mr-10 justify-center self-stretch my-auto text-2xl tracking-tighter text-neutral-700"
       style={{ transform: calculatePosition() }}
     >
       <span className=" -ml-[150px]  md:-ml-[200px] lg:ml-225 flex justify-center self-center px-4  -py-1  mt-1 text-herred rounded-sm ">

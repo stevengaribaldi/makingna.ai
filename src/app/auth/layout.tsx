@@ -34,7 +34,7 @@ const LayoutProps = async ({ children }: Props) => {
         </h2>
         <p className="text-pinkher mb-10 md:text-sm z-10">
           Our xMakingna intelligence is capable of capturing lead information
-          without a form... <br />A promise written on water
+          without a form <br /> and can help you close more deals faster.
         </p>
         <div className="absolute  flex inset-0 flex-1">
           <ThreeModel />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bungee_Hairline } from 'next/font/google';
-
+import { Menu } from 'lucide-react';
 const bungeeHairline = Bungee_Hairline({
   subsets: ['latin'],
   weight: '400',
@@ -14,7 +14,7 @@ export const MenuLogo = ({ onClick }: MenuLogoProps) => {
   return (
     <div
       onClick={onClick}
-      className="relative  cursor-default flex justify-center items-center"
+      className="relative mb-10 top-1 cursor-pointer flex justify-center items-center"
       style={{ width: '30px', height: '30px' }}
     >
       <div className="relative">
@@ -39,10 +39,8 @@ export const MenuLogo = ({ onClick }: MenuLogoProps) => {
               className={`absolute top-0 left-[0.2px] ${bungeeHairline.className} text-midnightblue`}
             >
               <span style={{ fontSize: '3.5em' }}>x</span>
-              <span
-                className="-ml-[47px]"
-                style={{ fontSize: '4em' }}
-              ></span>{' '}
+              <span className="-ml-[47px]" style={{ fontSize: '4em' }}>
+              </span>{' '}
             </span>{' '}
             <span
               className={`absolute top-0 -left-[0.2px] ${bungeeHairline.className} text-midnightblue`}
@@ -77,6 +75,7 @@ export const MenuLogo = ({ onClick }: MenuLogoProps) => {
               <span style={{ fontSize: '3.5em' }}>x</span>
               <span
                 className="-ml-[47px]"
+                
                 style={{ fontSize: '4em' }}
               ></span>{' '}
             </span>

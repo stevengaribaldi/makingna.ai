@@ -17,9 +17,9 @@ type Props = {
 const AppDrawer = ({ children, description, onOpen, title }: Props) => {
   return (
     <Drawer>
-      <DrawerTrigger> {onOpen}</DrawerTrigger>
-      <DrawerContent>
-        <div className="container flex flex-col items-center gap-2 pb-10">
+      <DrawerTrigger className="bg-stone-200"> {onOpen}</DrawerTrigger>
+      <DrawerContent className="bg-stone-200">
+        <div className="container flex flex-col bg-stone-200 items-center gap-2 pb-10">
           <DrawerTitle>{title}</DrawerTitle>
           <DrawerDescription>{description}</DrawerDescription>
           {children}

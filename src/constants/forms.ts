@@ -61,3 +61,14 @@ export const USER_LOGIN_FORM: UserRegistrationProps[] = [
     type: 'password',
   },
 ];
+
+export const DOMAIN_NAMES: UserRegistrationProps[] = [
+  {
+    id: '1',
+    inputType: 'input',
+    placeholder: 'mydomain.com',
+    name: 'domain',
+    type: 'text',
+    label: 'Domain',
+  },
+];
