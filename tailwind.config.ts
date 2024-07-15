@@ -58,7 +58,8 @@ const config: Config = {
         input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },
       colors: {
-        jade:'#000302',
+        otpcolor: '#f4899b',
+        jade: '#000302',
         purechocolate: '#160d08',
         pinkher: '#f87187',
         crimson: '#bb0a1e',
@@ -74,7 +75,7 @@ const config: Config = {
         jellybean: '#da614e',
         gold: '#B78428',
         bluesky: '#2596be',
-        darkgold: 'cca43b',
+        darkgold: '#cca43b',
         bluegray: '#3e567c',
         lightblue: '#a7bbcb',
         lightgray: '#c0c0c0',

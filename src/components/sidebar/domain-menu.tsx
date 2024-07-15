@@ -61,7 +61,7 @@ const DomainMenu = ({ domains, min }: Props) => {
               />
               <Button
                 type="submit"
-                className="p-2 px-20 w-full flex-col ml- gap-4 text-center hover:-translate-y-0.3 hover:ring-1n relative rounded-md bg-slate-950 bg-gradient-to-r from-slate-800/0 to-slate-800/0 text-lg font-medium transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40 flex items-center justify-center"
+                className="px-20 w-full flex-col text-center hover:-translate-y-0.3 hover:ring-1n relative rounded-3xl bg-slate-950 bg-gradient-to-r from-slate-800/0 to-slate-800/0 text-lg font-medium transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40 flex items-center justify-center"
               >
                 Add Domain
               </Button>
@@ -76,7 +76,7 @@ const DomainMenu = ({ domains, min }: Props) => {
               href={`/settings/${domain.name.split('.')[0]}`}
               key={domain.id}
               className={cn(
-                'flex gap-3 hover:bg-white rounded-full transition duration-100 ease-in-out cursor-pointer',
+                'flex gap-3 items-center justify-center mr-[4px]  hover:bg-white rounded-full transition duration-100 ease-in-out cursor-pointer',
                 !min ? 'p-2' : 'py-2 ',
                 domain.name.split('.')[0] == isDomain && 'bg-cream',
               )}

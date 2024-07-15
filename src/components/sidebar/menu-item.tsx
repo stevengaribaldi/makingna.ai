@@ -22,7 +22,7 @@ const MenuItem = ({ size, path, icon, label, current, onSignOut }: Props) => {
             !current
               ? 'text-gray-500'
               : current == path
-                ? 'bg-white sidebar-field rounded-lg  half-moon-rounded -mr-[2.25rem] font=bold'
+                ? 'bg-white sidebar-field rounded-3xl rounded-r-none half-moon-rounded -mr-[1.01rem] -z-50 font=bold'
                 : 'text-gray-500',
           )}
           href={path ? `/${path}` : '#'}
@@ -38,10 +38,10 @@ const MenuItem = ({ size, path, icon, label, current, onSignOut }: Props) => {
           onClick={onSignOut}
           className={cn(
             !current
-              ? 'text-gray-500'
+              ? 'text-gray-500 rounded-3xl'
               : current == path
-                ? 'bg-white font-bold sidebar-field   text-black'
-                : 'text-gray-500 sidebar-min',
+                ? 'bg-white font-bold   sidebar-field-min text-black'
+                : 'text-gray-500 sidebar-min rounded-3xl',
             'rounded-lg py-2 my-1 ',
           )}
           href={path ? `/${path}` : '#'}

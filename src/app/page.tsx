@@ -163,8 +163,9 @@ export default async function Home() {
                 {card.features.map((feature) => (
                   <div key={feature} className="flex gap-2">
                     <Check
-                      className={clsx('text-tiko  font-extrabold', {
-                        'text-[#0598b1]  size-7 rounded-sm ':
+                      className={clsx(' font-extrabold', {
+                        'text-tiko ': card.title !== 'Pro',
+                        ' text-[#0689a0]  size-7 rounded-sm':
                           card.title === 'Pro',
                       })}
                     />
