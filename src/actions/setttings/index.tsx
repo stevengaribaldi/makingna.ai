@@ -43,7 +43,7 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
         (subscription?.subscription?.plan == 'PRO' &&
           subscription._count.domains < 8) ||
         (subscription?.subscription?.plan == 'ULTIMATE' &&
-          subscription._count.domains < 19)
+          subscription._count.domains < 18)
       ) {
         const newDomain = await client.user.update({
           where: {

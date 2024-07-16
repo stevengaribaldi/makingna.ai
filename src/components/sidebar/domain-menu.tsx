@@ -34,7 +34,7 @@ const DomainMenu = ({ domains, min }: Props) => {
           description="Add your domain address to set up the chatbot integration"
           title="Add your business domain"
           onOpen={
-            <div className="cursor-pointer p-1.5 text-gray-500 rounded-full border-2">
+            <div className="cursor-pointer p-1.5 text-gray-500 hover:text-midnightblue rounded-full border-2">
               <Plus />
             </div>
           }
@@ -76,7 +76,7 @@ const DomainMenu = ({ domains, min }: Props) => {
               href={`/settings/${domain.name.split('.')[0]}`}
               key={domain.id}
               className={cn(
-                'flex gap-3 items-center justify-center mr-[4px]  hover:bg-white rounded-full transition duration-100 ease-in-out cursor-pointer',
+                'flex gap-3 items-center justify-center mr-[4px]   sidebar-domain rounded-full transition duration-100 ease-in-out cursor-pointer',
                 !min ? 'p-2' : 'py-2 ',
                 domain.name.split('.')[0] == isDomain && 'bg-cream',
               )}
