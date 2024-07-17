@@ -1,7 +1,7 @@
 import CalIcon from '@/icons/cal-icon';
 import ChatIcon from '@/icons/chat-icon';
 import DashboardIcon from '@/icons/dashboard-icon';
-import EmailIcon from '@/icons/email-icon'
+import EmailIcon from '@/icons/email-icon';
 import HelpDeskIcon from '@/icons/help-desk-icon';
 import IntegrationsIcon from '@/icons/integrations-icon';
 import SettingsIcon from '@/icons/settings-icon';
@@ -10,56 +10,56 @@ import TimerIcon from '@/icons/timer-icon';
 
 type SIDE_BAR_MENU_PROPS = {
   label: string;
-  icon: JSX.Element;
+  icon: ((animate: boolean) => JSX.Element);
   path: string;
 };
 
 export const SIDE_BAR_MENU: SIDE_BAR_MENU_PROPS[] = [
   {
     label: 'Dashboard',
-    icon: <DashboardIcon />,
+    icon: (animate) => <DashboardIcon animate={animate} />,
     path: 'dashboard',
   },
   {
     label: 'Conversations',
-    icon: <ChatIcon />,
+    icon: (animate) => <ChatIcon animate={animate} />,
     path: 'conversation',
   },
   {
     label: 'Integrations',
-    icon: <IntegrationsIcon />,
+    icon: (animate) => <IntegrationsIcon animate={animate} />,
     path: 'integration',
   },
   {
     label: 'Settings',
-    icon: <SettingsIcon />,
+    icon: (animate) => <SettingsIcon animate={animate} />,
     path: 'settings',
   },
   {
     label: 'Appointments',
-    icon: <CalIcon />,
+    icon: (animate) => <CalIcon animate={animate} />,
     path: 'appointment',
   },
   {
     label: 'Email Marketing',
-    icon: <EmailIcon />,
+    icon: (animate) => <EmailIcon animate={animate} />,
     path: 'email-marketing',
   },
 ];
 
 type TABS_MENU_PROPS = {
   label: string;
-  icon?: JSX.Element;
+  icon?: JSX.Element | ((animate: boolean) => JSX.Element);
 };
 
 export const TABS_MENU: TABS_MENU_PROPS[] = [
   {
     label: 'unread',
-    icon: <EmailIcon />,
+    icon: (animate) => <EmailIcon animate={animate} />,
   },
   {
     label: 'all',
-    icon: <EmailIcon />,
+    icon: (animate) => <EmailIcon animate={animate} />,
   },
   {
     label: 'expired',
@@ -91,8 +91,8 @@ export const EMAIL_MARKETING_HEADER = ['Id', 'Email', 'Answers', 'Domain'];
 
 export const BOT_TABS_MENU: TABS_MENU_PROPS[] = [
   {
-    label: 'chat',
-    icon: <ChatIcon />,
+    label: 'Conversations',
+    icon: (animate) => <ChatIcon animate={animate} />,
   },
   {
     label: 'helpdesk',
