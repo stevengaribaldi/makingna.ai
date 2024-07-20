@@ -175,7 +175,7 @@ function NavBar() {
           </div>
         </span>
       </div>
-      <ul className="gap-1 md:-mr-[10px] lg:-ml-14 justify-between self-stretch my-auto text-sm leading-5  max-md:flex-wrap max-md:max-w-full font-normal hidden md:flex">
+      <ul className="gap-1 cursor-pointer md:-mr-[10px] lg:-ml-14 justify-between self-stretch my-auto text-sm leading-5  max-md:flex-wrap max-md:max-w-full font-normal hidden md:flex">
         <li
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(209,192,208,80%)] -mt-2

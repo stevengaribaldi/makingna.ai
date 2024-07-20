@@ -29,7 +29,9 @@ const UserTypeCard = ({
       <Card
         className={cn(
           'w-full cursor-pointer  ',
-          userType == value ? 'bg-bone' : 'hover:border-gray-300',
+          userType == value
+            ? 'bg-lightporcelain ring-2 ring-pink-300 ring-opacity-10 shadow-[0_6px_20px_rgba(209,192,208,80%)] '
+            : 'hover:border-gray-300',
         )}
       >
         <CardContent className="flex justify-between p-2">

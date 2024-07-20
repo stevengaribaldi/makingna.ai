@@ -1,7 +1,7 @@
 'use client';
 import { Input } from '@/components/ui/inputmath';
 import { Label } from '@/components/ui/label';
-import React, { useState } from 'react';
+import React, { useState, FocusEvent } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import {
   FieldErrors,
@@ -19,7 +19,7 @@ type Props = {
   options?: { value: string; label: string; id: string }[];
   label?: string;
   placeholder: string;
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<any>;
   name: string;
   errors: FieldErrors<FieldValues>;
   lines?: number;
@@ -39,15 +39,22 @@ const FormGenerator = ({
   lines,
   form,
   defaultValue,
-
 }: Props) => {
   const { watch } = useFormContext();
-  const [isFocused, setIsFocused,] = useState(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const value = watch(name, defaultValue);
 
-  const handleFocus = () => setIsFocused(true);
-  const handleBlur = () => setIsFocused(false);
+  const handleFocus = (
+    event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setIsFocused(true);
+  };
 
+  const handleBlur = (
+    event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setIsFocused(!!event.target.value);
+  };
   switch (inputType) {
     case 'input':
     default:
@@ -69,7 +76,7 @@ const FormGenerator = ({
                 {placeholder}
               </Label>
               <Input
-                className="w-full  font  rounded-md px-3  focus:ring-1 focus:ring-offset-1 hover:ring-opacity-90 outline-none"
+                className="w-full  font  rounded-md px-3 hover:ring-2  focus:ring-2 focus:ring-offset-2 ring-shadowpink hover:ring-opacity-90 outline-none"
                 id={`input-${label}`}
                 type={type}
                 form={form}
@@ -106,16 +113,15 @@ const FormGenerator = ({
               ))}
           </select>
 
-            <ErrorMessage
-              errors={errors}
-              name={name}
-              render={({ message }) => (
-                <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
-                  {message === 'Required' ? '' : message}
-                </p>
-              )}
-            />
-
+          <ErrorMessage
+            errors={errors}
+            name={name}
+            render={({ message }) => (
+              <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
+                {message === 'Required' ? '' : message}
+              </p>
+            )}
+          />
         </Label>
       );
     case 'textarea':
@@ -130,15 +136,15 @@ const FormGenerator = ({
             defaultValue={defaultValue}
             {...register(name)}
           />
-            <ErrorMessage
-              errors={errors}
-              name={name}
-              render={({ message }) => (
-                <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
-                  {message === 'Required' ? '' : message}
-                </p>
-              )}
-            />
+          <ErrorMessage
+            errors={errors}
+            name={name}
+            render={({ message }) => (
+              <p className="text-xs font-sans font-extrabold text-bloodorange mb-1 pb-1.5 -mt-5">
+                {message === 'Required' ? '' : message}
+              </p>
+            )}
+          />
         </Label>
       );
   }

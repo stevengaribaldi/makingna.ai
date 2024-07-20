@@ -11,7 +11,7 @@ const SignInPage = () => {
         <SignInFormProvider>
           <div className="flex flex-col gap-3">
             <LoginForm />
-            <div className="w-full pt-5 flex flex-col gap-3 items-center">
+            <div className="w-full pt-0 flex flex-col gap-3 items-center">
               <Button
                 type="submit"
                 className="group/btn hover:-translate-y-0.3 hover:ring-1 mt-8 relative h-10 w-80 rounded-md bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90 to-slate-800/0 text-lg font-medium text-[#fafafa] transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40"
@@ -22,7 +22,7 @@ const SignInPage = () => {
                 href="/auth/sign-up"
                 className="group  inline-flex justify-center gap-1  text-[#36454F]"
               >
-                <button className="mt-0.5 items-center  inline-flex justify-center bg-custom-black no-underline group cursor-pointer   relative w-full rounded-full p-px  font-semibold leading-9  ">
+                <button className="mt-4 items-center  inline-flex justify-center bg-custom-black no-underline group cursor-pointer   relative w-full rounded-full p-px  font-semibold leading-9  ">
                   <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center"></span>
                   <span className="font-light">
                     Dont't have an account?&nbsp;

@@ -64,7 +64,7 @@ const ButtonHandler = (props: Props) => {
       getValues('password') === getValues('confirmPassword');
 
     return (
-      <div className="flex w-full pt-12 -mt-7 flex-col items-center gap-3">
+      <div className="flex w-full pt-12 -mt-12 flex-col items-center gap-3">
         <Button
           type="submit"
           className="group/btn hover:-translate-y-0.3  hover:ring-1 mt-8 relative h-10 w-80 rounded-md bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90 to-slate-800/0 text-lg font-medium text-[#fafafa] transition-opacity duration-500 hover:bg-cyan-950/90 via-cyan-900/90 text-peach hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:ring-bluegray hover:ring-opacity-10 group-hover:opacity-40"
@@ -86,7 +86,7 @@ const ButtonHandler = (props: Props) => {
           href="/auth/sign-in"
           className="group  inline-flex justify-center gap-1  text-[#36454F]"
         >
-          <button className="mt-0.5 items-center  inline-flex justify-center bg-custom-black no-underline group cursor-pointer   relative w-full rounded-full p-px  font-semibold leading-9  ">
+          <button className="mt-7 items-center  inline-flex justify-center bg-custom-black no-underline group cursor-pointer   relative w-full rounded-full p-px  font-semibold leading-9  ">
             <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center"></span>
             <span className="font-light">Already have an Account?&nbsp;</span>
             <div className="font-bold text-tikolight  hover:font-bold group-hover:text-cyan-600">
@@ -109,7 +109,7 @@ const ButtonHandler = (props: Props) => {
                 strokeWidth="1.5"
               />
             </svg>
-            <span className=" absolute -bottom-0 left-[12.525rem] h-px w-[calc(20%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
+            <span className=" absolute -bottom-0 left-[11.525rem] h-px w-[calc(20%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
           </button>
         </Link>
       </div>
@@ -166,7 +166,7 @@ const ButtonHandler = (props: Props) => {
                 strokeWidth="1.5"
               />
             </svg>
-            <span className=" absolute -bottom-0 left-[12.525rem] h-px w-[calc(20%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
+            <span className=" absolute -bottom-0 left-[11.525rem] h-px w-[calc(20%-.00005rem)] mb-1.5 bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-900 group-hover:opacity-40 " />
           </button>
         </Link>
     </div>

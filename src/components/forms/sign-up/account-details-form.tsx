@@ -15,8 +15,13 @@ const words = 'Account details';
 
 const AccountDetailsForm = ({ register, errors }: Props) => {
   return (
-    <div className="max-w-md w-full relative top-[115px]  bg-bone mx-auto -mt-52 rounded-sm md:rounded-2xl pr-10 pb-12 pl-10 shadow-[0_-1px_20px_rgba(250,128,114,50%)]">
-      <div className="pb-1 -mt-1.5 rounded-sm">
+    <div
+      className="max-w-md w-full relative top-[115px] bg-lightporcelain mx-auto
+      -mt-52 rounded-sm md:rounded-2xl pr-10 pb-16 pl-10
+       ring-2 ring-pink-300 ring-opacity-10
+                     shadow-[0_6px_20px_rgba(209,192,208,80%)]"
+    >
+      <div className="pb-1  rounded-sm">
         <h2 className="text-midnightblue md:text-4xl font-bold">
           <TextGenerateEffect words={words} />
         </h2>
@@ -26,7 +31,7 @@ const AccountDetailsForm = ({ register, errors }: Props) => {
           </p>
         </div>
       </div>
-      <div className="ring-pink-300 ring-opacity-10 px-10 py-2 rounded-md text-pink-200 bg-custom-black font-extralight text-lg transition duration-200 ease-linear my-3 ring-1 mt-1 bg-bone max-w-md w-full mx-auto rounded-xs md:rounded-2xl pr-4 pt-1 pb-1 pl-4">
+      <div className="ring-pink-100 ring-opacity-10 px-10 py-2 rounded-md text-pink-200  font-extralight text-lg transition duration-200 ease-linear my-3 ring-1 mt-1 bg-lightporcelain max-w-md w-full mx-auto rounded-xs md:rounded-2xl pr-4 pt-1 pb-1 pl-4">
         {USER_REGISTRATION_FORM.map((field) => (
           <FormGenerator
             key={field.id}

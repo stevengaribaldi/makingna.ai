@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 type Props = {
   size: 'max' | 'min';
   label: string;
-  icon: (animate: boolean) => JSX.Element;
+  icon?: JSX.Element | ((animate: boolean) => JSX.Element);
   path?: string;
   current?: string;
   onSignOut?(): void;
@@ -18,7 +18,7 @@ const MenuItem = ({ size, path, icon, label, current, onSignOut }: Props) => {
     if (typeof icon === 'function') {
       return icon(hover);
     }
-    console.log('eror icon');
+    return icon;
   };
 
   switch (size) {
@@ -29,7 +29,7 @@ const MenuItem = ({ size, path, icon, label, current, onSignOut }: Props) => {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           className={cn(
-            'flex items-center gap-2 py-2 -px-2 -mr-[1rem] my-1 mx-3 ',
+            'menu-item flex items-center gap-2 py-2 -px-2 my-1  ',
             !current
               ? 'text-gray-500'
               : current === path
@@ -49,6 +49,7 @@ const MenuItem = ({ size, path, icon, label, current, onSignOut }: Props) => {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           className={cn(
+            'menu-item',
             !current
               ? 'text-gray-500 rounded-3xl'
               : current === path

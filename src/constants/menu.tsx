@@ -10,7 +10,7 @@ import TimerIcon from '@/icons/timer-icon';
 
 type SIDE_BAR_MENU_PROPS = {
   label: string;
-  icon: ((animate: boolean) => JSX.Element);
+  icon?: JSX.Element | ((animate: boolean) => JSX.Element);
   path: string;
 };
 

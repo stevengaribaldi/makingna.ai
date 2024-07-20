@@ -47,6 +47,8 @@ const config: Config = {
       },
 
       boxShadow: {
+        'custom-shadow':  'inset 0 10px 50px rgba(209, 192, 208, 1)',
+
         'blue-lg':
           '0 10px 15px -3px rgba(59, 130, 246, 0.5), 0 4px 6px -2px rgba(59, 130, 246, 0.25)', // Example bluish hue
         'strong-blue-lg':
@@ -116,6 +118,8 @@ const config: Config = {
         midnightblue: '#003366',
         ghost: '#CDCDCD',
         grandis: '#FFC989',
+        lightporcelain: '#f1ede8',
+        blueporcelain: '#ecf5f5',
         porcelain: '#F1F1F1',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
