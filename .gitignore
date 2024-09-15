@@ -40,3 +40,4 @@ src/components/forms/sign-in/login-form.tsx
 src/components/settings/billing-setting.tsx
 src/app/globals.css
 src/icons/
+src/components/forms/settings/code-snippet.tsx

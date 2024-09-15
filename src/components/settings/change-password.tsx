@@ -16,15 +16,13 @@ const ChangePassword = (props: Props) => {
   return (
     <div className=" pl-0 lg:pl-10 ">
       <div
-        className="  rounded-sm w-[269px] lg:w-[523px]  gap-10
+        className=" form-change-password rounded-sm w-[269px] lg:w-[523px]  gap-10
     ring-1 ring-gray-600 ring-opacity-10
                     shadow-[0_6px_20px_rgba(209,192,208,60%)]  -mt-5 -mb-5 md:mb-0 lg:mb-0 pb-5 md:pb-8
-                    py-2 bg-lightporcelain  transition text-tikolight duration-200 ease-linear"
+                    py-2 bg-lightporcelain transition text-tikolight duration-200 ease-linear"
       >
         <div className="  mt-1 text-center  ">
-          <p className="text-lg text-stella font-semibold">
-            Change Password
-          </p>
+          <p className="text-lg text-stella font-semibold">Change Password</p>
           <p className="text-sm text-midnightblue items-center  font-extralight">
             Reset your password
           </p>
