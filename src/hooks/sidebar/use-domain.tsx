@@ -4,7 +4,6 @@ import { AddDomainSchema } from '@/schemas/settings.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { UploadClient } from '@uploadcare/upload-client';
 import { usePathname, useRouter } from 'next/navigation';
-
 import { useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 
@@ -33,17 +32,35 @@ export const useDomain = () => {
   }, [pathname]);
 
   const onAddDomain = handleSubmit(async (values: FieldValues) => {
-    setLoading(true);
-    const uploaded = await upload.uploadFile(values.image[0]);
-    const domain = await onIntegrateDomain(values.domain, uploaded.uuid);
-    if (domain) {
-      reset();
-      setLoading(false);
+    if (!values.image || values.image.length === 0) {
       toast({
-        title: domain.status == 200 ? 'Success' : 'Error',
-        description: domain.message,
+        title: 'Error',
+        description: 'Image is required',
       });
-      router.refresh();
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const uploaded = await upload.uploadFile(values.image[0]);
+      const domain = await onIntegrateDomain(values.domain, uploaded.uuid);
+      if (domain) {
+        reset();
+        toast({
+          title: domain.status == 200 ? 'Success' : 'Error',
+          description: domain.message,
+        });
+        router.refresh();
+      }
+    } catch (error: any) {
+      toast({
+        title: 'Error',
+        description: error.message,
+      });
+    } finally {
+      setLoading(false);
     }
   });
 

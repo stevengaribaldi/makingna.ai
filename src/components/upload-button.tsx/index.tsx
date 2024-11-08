@@ -9,9 +9,10 @@ type Props = {
   register: UseFormRegister<any>;
   errors: FieldErrors<FieldValues>;
   label: string;
+  required?: boolean;
 };
 
-const UploadButton = ({ errors, label, register }: Props) => {
+const UploadButton = ({ errors, label, register, required }: Props) => {
   return (
     <>
       <div className="  gap-2 items-center">
@@ -21,7 +22,9 @@ const UploadButton = ({ errors, label, register }: Props) => {
            origin-left hover:decoration-2 hover:text-rose-50 relative upload-icon  w-full border text-left  text-stone-200 gap-2 p-1.5  text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[' '] before:right-1 before:top-1 "
         >
           <Input
-            {...register('image')}
+            {...register('image', {
+              required: required && 'Image is required',
+            })}
             className="hidden justify-center "
             type="file"
             id="upload-button"

@@ -200,6 +200,28 @@ export const onGetCurrentDomainInfo = async (domain: string) => {
   }
 };
 
+export const getChatBotByDomainId = async (domainId: string) => {
+  const user = await currentUser();
+
+  if (!user) return null;
+
+  try {
+    const domain = await client.domain.findUnique({
+      where: {
+        id: domainId,
+      },
+      select: {
+        chatBot: true,
+      },
+    });
+
+    return domain?.chatBot || null;
+  } catch (error) {
+    console.error('Error fetching chatBot:', error);
+    return null;
+  }
+};
+
 export const onUpdateDomain = async (id: string, name: string) => {
   try {
     const domainExists = await client.domain.findFirst({
@@ -242,12 +264,28 @@ export const onUpdateDomain = async (id: string, name: string) => {
   }
 };
 
-export const onChatBotImageUpdate = async (id: string, icon: string) => {
+export const onChatBotImageUpdate = async (
+  id: string,
+  icon: string | null,
+  background: string | undefined,
+  textColor: string | undefined,
+) => {
   const user = await currentUser();
 
   if (!user) return;
 
   try {
+    // Prepare the update data
+    const updateData: any = {
+      background,
+      textColor,
+    };
+
+    // Include icon in updateData only if it's not undefined
+    if (icon !== undefined) {
+      updateData.icon = icon; // Can be string or null
+    }
+
     const domain = await client.domain.update({
       where: {
         id,
@@ -255,9 +293,7 @@ export const onChatBotImageUpdate = async (id: string, icon: string) => {
       data: {
         chatBot: {
           update: {
-            data: {
-              icon,
-            },
+            data: updateData,
           },
         },
       },
@@ -266,7 +302,7 @@ export const onChatBotImageUpdate = async (id: string, icon: string) => {
     if (domain) {
       return {
         status: 200,
-        message: 'Domain updated',
+        message: 'Chatbot updated successfully',
       };
     }
 
@@ -276,6 +312,10 @@ export const onChatBotImageUpdate = async (id: string, icon: string) => {
     };
   } catch (error) {
     console.log(error);
+    return {
+      status: 500,
+      message: 'Internal server error',
+    };
   }
 };
 
