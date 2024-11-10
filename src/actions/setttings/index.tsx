@@ -186,6 +186,8 @@ export const onGetCurrentDomainInfo = async (domain: string) => {
                 id: true,
                 welcomeMessage: true,
                 icon: true,
+                background: true,
+                textColor: true,
               },
             },
           },

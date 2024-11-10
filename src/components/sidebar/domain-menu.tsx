@@ -1,6 +1,6 @@
 import { useDomain } from '@/hooks/sidebar/use-domain';
 import { cn } from '@/lib/utils';
-import React from 'react';
+import React, { useState } from 'react';
 import AppDrawer from '../drawer';
 import { Plus } from 'lucide-react';
 import { Loader } from '../loader';
@@ -10,7 +10,7 @@ import { Button } from '../ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { DOMAIN_NAMES } from '@/constants/forms';
-
+AppDrawer;
 type Props = {
   min?: boolean;
   domains:
@@ -24,17 +24,30 @@ type Props = {
 };
 
 const DomainMenu = ({ domains, min }: Props) => {
-  const { errors, isDomain, loading, onAddDomain, register } = useDomain();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
+  const handleSuccess = () => {
+    setIsDrawerOpen(false);
+  };
+
+  const { errors, isDomain, loading, onAddDomain, register } = useDomain({
+    onSuccess: handleSuccess,
+  });
   return (
     <div className={cn('flex flex-col gap-3', min ? 'mt-6' : 'mt-3')}>
       <div className="flex justify-between w-full items-center">
         {!min && <p className="text-xs text-gray-500">DOMAINS </p>}
         <AppDrawer
+          isOpen={isDrawerOpen}
+          onClose={() => setIsDrawerOpen(false)}
           description="Add your domain address to set up the chatbot integration"
           title="Add your business domain"
+          // The trigger element to open the drawer
           onOpen={
-            <div className="cursor-pointer p-1.5 text-gray-500 hover:text-midnightblue rounded-full border-2">
+            <div
+              onClick={() => setIsDrawerOpen(true)}
+              className="cursor-pointer p-1.5 text-gray-500 hover:text-midnightblue rounded-full border-2"
+            >
               <Plus />
             </div>
           }

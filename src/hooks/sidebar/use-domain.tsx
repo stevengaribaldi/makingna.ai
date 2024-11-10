@@ -1,3 +1,4 @@
+// hooks/sidebar/use-domain.ts
 import { onIntegrateDomain } from '@/actions/setttings';
 import { useToast } from '@/components/ui/use-toast';
 import { AddDomainSchema } from '@/schemas/settings.schema';
@@ -11,7 +12,11 @@ const upload = new UploadClient({
   publicKey: process.env.NEXT_PUBLIC_UPLOAD_CARE_PUBLIC_KEY as string,
 });
 
-export const useDomain = () => {
+type UseDomainProps = {
+  onSuccess?: () => void;
+};
+
+export const useDomain = ({ onSuccess }: UseDomainProps = {}) => {
   const {
     register,
     handleSubmit,
@@ -45,14 +50,26 @@ export const useDomain = () => {
 
     try {
       const uploaded = await upload.uploadFile(values.image[0]);
-      const domain = await onIntegrateDomain(values.domain, uploaded.uuid);
-      if (domain) {
+      const domainResponse = await onIntegrateDomain(
+        values.domain,
+        uploaded.uuid,
+      );
+
+      if (domainResponse) {
         reset();
         toast({
-          title: domain.status == 200 ? 'Success' : 'Error',
-          description: domain.message,
+          title: domainResponse.status === 200 ? 'Success' : 'Error',
+          description: domainResponse.message,
         });
-        router.refresh();
+
+        if (domainResponse.status === 200) {
+          const subdomain = values.domain.split('.')[0];
+          router.push(`/settings/${subdomain}`);
+
+          if (onSuccess) {
+            onSuccess();
+          }
+        }
       }
     } catch (error: any) {
       toast({
