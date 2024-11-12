@@ -33,8 +33,8 @@ const MenuItem = ({ size, path, icon, label, current, onSignOut }: Props) => {
             !current
               ? 'text-gray-500'
               : current === path
-                ? 'bg-white sidebar-field rounded-3xl rounded-r-none half-moon-rounded -mr-[1.01rem] -z-50 font-bold'
-                : 'text-gray-500 sidebar-option',
+                ? 'bg-white sidebar-field rounded-3xl rounded-r-none half-moon-rounded -mr-[1.01rem] text-black font-medium  '
+                : 'text-gray-700 font-normal sidebar-option',
           )}
           href={path ? `/${path}` : '#'}
         >
@@ -53,7 +53,7 @@ const MenuItem = ({ size, path, icon, label, current, onSignOut }: Props) => {
             !current
               ? 'text-gray-500 rounded-3xl'
               : current === path
-                ? 'bg-white font-bold sidebar-field-min text-black'
+                ? 'bg-white  sidebar-field-min text-black'
                 : 'text-gray-500 sidebar-domain rounded-3xl',
             'rounded-lg py-2 my-1',
           )}

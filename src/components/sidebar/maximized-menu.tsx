@@ -22,7 +22,7 @@ type Props = {
 
 const MaxMenu = ({ current, domains, onExpand, onSignOut }: Props) => {
   return (
-    <div className="py-3 px-4   flex flex-col h-full">
+    <div className="py-3 px-4 z-50 flex flex-col h-full">
       <div className="flex justify-between items-center">
         <div onClick={onExpand} className="-ml-5 md:-ml-0">
           <Logo moveRight="100px" moveUp="15px" moveDown="1px" moveLeft="5px" />

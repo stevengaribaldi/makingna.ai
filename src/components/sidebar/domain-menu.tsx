@@ -91,7 +91,8 @@ const DomainMenu = ({ domains, min }: Props) => {
               className={cn(
                 'flex gap-3 items-center justify-center mr-[4px]   sidebar-domain rounded-full transition duration-100 ease-in-out cursor-pointer',
                 !min ? 'p-2' : 'py-2 ',
-                domain.name.split('.')[0] == isDomain && 'bg-cream',
+                domain.name.split('.')[0] == isDomain &&
+                  ' sidebar-field-min -z-50',
               )}
             >
               <Image
