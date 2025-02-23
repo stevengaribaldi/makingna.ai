@@ -42,7 +42,6 @@ const DomainMenu = ({ domains, min }: Props) => {
           onClose={() => setIsDrawerOpen(false)}
           description="Add your domain address to set up the chatbot integration"
           title="Add your business domain"
-          // The trigger element to open the drawer
           onOpen={
             <div
               onClick={() => setIsDrawerOpen(true)}

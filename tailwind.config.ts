@@ -33,7 +33,12 @@ const config: Config = {
         '2xl': '1400px',
       },
     },
-
+    filter: {
+      vivid: 'contrast(1.1) saturate(1.6) brightness(1.8) hue-rotate(2deg)',
+    },
+    backdropFilter: {
+      vivid: 'contrast(1.1) saturate(1.6) brightness(1.8) hue-rotate(2deg)',
+    },
     extend: {
       spacing: {
         '0.1': '0.025rem',
@@ -47,7 +52,7 @@ const config: Config = {
       },
 
       boxShadow: {
-        'custom-shadow':  'inset 0 10px 50px rgba(209, 192, 208, 1)',
+        'custom-shadow': 'inset 0 10px 50px rgba(209, 192, 208, 1)',
 
         'blue-lg':
           '0 10px 15px -3px rgba(59, 130, 246, 0.5), 0 4px 6px -2px rgba(59, 130, 246, 0.25)', // Example bluish hue

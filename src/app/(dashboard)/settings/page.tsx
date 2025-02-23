@@ -9,7 +9,7 @@ const Page = (props: Props) => {
   return (
     <>
       <InfoBar />
-      <div className="  w-full chat-window flex-1 flex flex-col lg:overflow-hidden  gap-10  lg:gap-[100px]">
+      <div className="  w-full chat-window flex-1 flex flex-col l     gap-10  lg:gap-[100px]">
         <BillingSettings />
         <ChangePassword />
       </div>
